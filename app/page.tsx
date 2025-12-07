@@ -116,7 +116,7 @@ export default function HomePage() {
           transition={{ duration: 0.6, delay: 0.2 }}
         >
           <motion.div
-            className="absolute inset-0 rounded-3xl bg-gradient-to-tr from-indigo-500 via-purple-500 to-pink-500 opacity-80 blur-2xl"
+            className="absolute inset-0 rounded-3xl bg-linear-to-tr from-indigo-500 via-purple-500 to-pink-500 opacity-80 blur-2xl"
             animate={{ opacity: [0.7, 1, 0.7] }}
             transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
           />
