@@ -1,3 +1,4 @@
+// components/Navbar.tsx
 "use client";
 
 import Link from "next/link";
@@ -23,47 +24,46 @@ export default function Navbar() {
     <header
       className={`fixed top-0 left-0 right-0 z-30 transition-all ${
         isScrolled
-          ? "backdrop-blur-md bg-slate-950/80 border-b border-slate-800/70 shadow-[0_1px_0_0_rgba(15,23,42,0.8)]"
+          ? "backdrop-blur-md bg-white/80 border-b border-slate-200 shadow-[0_1px_0_0_rgba(15,23,42,0.08)]"
           : "bg-transparent"
       }`}
     >
-      <nav className="max-w-5xl mx-auto px-4 h-16 flex items-center justify-between">
+      <nav className="max-w-5xl mx-auto px-4 h-16 flex items-center justify-between gap-3">
         {/* Logo / Name */}
         <a
           href="#home"
-          className="font-semibold tracking-tight flex items-center gap-1.5"
+          className="font-semibold tracking-tight flex items-center gap-1.5 shrink-0"
         >
           <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-linear-to-tr from-indigo-500 via-purple-500 to-pink-500 text-[11px] font-bold text-slate-950 shadow-lg">
-            HC
+            YC
           </span>
-          <span className="text-sm sm:text-base text-slate-100">
-            Harsh<span className="text-indigo-400">Chauhan</span>
+          <span className="text-sm sm:text-base">
+            Your <span className="text-indigo-500">Name</span>
           </span>
         </a>
 
-        {/* Links */}
-        <div className="hidden sm:flex items-center gap-4 text-xs sm:text-sm">
+        {/* Navigation links – now visible on mobile too */}
+        <div className="flex items-center gap-3 text-[11px] sm:gap-4 sm:text-sm">
           {sections.map((section) => (
             <a
               key={section.id}
               href={`#${section.id}`}
-              className="relative px-2 py-1 text-slate-300 hover:text-indigo-300 transition-colors"
+              className="px-1.5 sm:px-2 py-1 text-slate-700 hover:text-indigo-500 transition-colors"
             >
               {section.label}
             </a>
           ))}
 
-          {/* Resume = separate page */}
           <Link
             href="/resume"
-            className="relative px-2 py-1 text-slate-300 hover:text-indigo-300 transition-colors"
+            className="px-1.5 sm:px-2 py-1 text-slate-700 hover:text-indigo-500 transition-colors"
           >
             Resume
           </Link>
 
           <a
             href="#contact"
-            className="group inline-flex items-center gap-1 px-3 py-1.5 rounded-full text-xs font-medium bg-indigo-500/90 hover:bg-indigo-400 text-slate-950 shadow-lg shadow-indigo-500/25"
+            className="hidden xs:inline-flex items-center gap-1 px-3 py-1.5 rounded-full text-[11px] sm:text-xs font-medium bg-indigo-500/90 hover:bg-indigo-400 text-white shadow-md"
           >
             Let&apos;s talk
           </a>
