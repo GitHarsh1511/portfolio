@@ -42,7 +42,7 @@ export default function Navbar() {
         </a>
 
         {/* Links */}
-        <div className="hidden sm:flex items-center gap-4 text-xs sm:text-sm">
+        <div className="flex items-center gap-4 text-xs sm:text-sm">
           {sections.map((section) => (
             <a
               key={section.id}
