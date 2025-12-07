@@ -285,7 +285,7 @@ export default function HomePage() {
           <p>
             LinkedIn:{" "}
             <a
-              href="www.linkedin.com/in/harshchauhan115"
+              href="https://linkedin.com/in/harshchauhan115"
               target="_blank"
               className="text-indigo-400 hover:underline"
             >
