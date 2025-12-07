@@ -33,7 +33,7 @@ export default function Navbar() {
           href="#home"
           className="font-semibold tracking-tight flex items-center gap-1.5"
         >
-          <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-gradient-to-tr from-indigo-500 via-purple-500 to-pink-500 text-[11px] font-bold text-slate-950 shadow-lg">
+          <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-linear-to-tr from-indigo-500 via-purple-500 to-pink-500 text-[11px] font-bold text-slate-950 shadow-lg">
             HC
           </span>
           <span className="text-sm sm:text-base text-slate-100">

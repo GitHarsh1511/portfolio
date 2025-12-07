@@ -27,7 +27,7 @@ export default function RootLayout({
       >
         {/* Subtle background gradient */}
         <div className="fixed inset-0 -z-10 bg-slate-950">
-          <div className="absolute inset-x-0 top-0 h-64 bg-gradient-to-b from-indigo-500/15 via-transparent to-transparent" />
+          <div className="absolute inset-x-0 top-0 h-64 bg-linear-to-b from-indigo-500/15 via-transparent to-transparent" />
           <div className="absolute -right-40 top-40 h-72 w-72 rounded-full bg-purple-500/10 blur-3xl" />
           <div className="absolute -left-40 bottom-0 h-72 w-72 rounded-full bg-blue-500/10 blur-3xl" />
         </div>
