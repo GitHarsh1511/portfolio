@@ -39,9 +39,9 @@ export default function RootLayout({
         </main>
 
         <footer className="max-w-5xl mx-auto px-4 pb-8 text-[11px] text-slate-500 flex justify-between gap-4">
-          <span>© {new Date().getFullYear()} Your Name</span>
+          <span>© {new Date().getFullYear()} Harsh Chauhan</span>
           <span className="hidden sm:inline">
-            Built with Next.js, Tailwind CSS & Framer Motion
+            
           </span>
         </footer>
       </body>

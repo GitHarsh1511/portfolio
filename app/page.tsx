@@ -51,7 +51,7 @@ export default function HomePage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
           >
-            Hi, I&apos;m <span className="text-indigo-400">Your Name</span>.{" "}
+            Hi, I&apos;m <span className="text-indigo-400">Harsh Chauhan</span>.{" "}
             <br />
             I build clean, fast, and modern digital experiences.
           </motion.h1>
@@ -269,33 +269,31 @@ export default function HomePage() {
               href="mailto:youremail@example.com"
               className="text-indigo-400 hover:underline"
             >
-              youremail@example.com
+              workwitharsh@gmail.com
             </a>
           </p>
           <p>
             GitHub:{" "}
             <a
-              href="https://github.com/your-github"
+              href="https://github.com/GitHarsh1511"
               target="_blank"
               className="text-indigo-400 hover:underline"
             >
-              github.com/your-github
+              https://github.com/GitHarsh1511
             </a>
           </p>
           <p>
             LinkedIn:{" "}
             <a
-              href="https://www.linkedin.com/in/your-linkedin"
+              href="www.linkedin.com/in/harshchauhan115"
               target="_blank"
               className="text-indigo-400 hover:underline"
             >
-              linkedin.com/in/your-linkedin
+              www.linkedin.com/in/harshchauhan115
             </a>
           </p>
         </div>
-        <p className="text-[11px] text-slate-500">
-          You can also mention this portfolio in your resume under “Projects”.
-        </p>
+        
       </motion.section>
     </div>
   );
