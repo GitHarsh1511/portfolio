@@ -34,10 +34,10 @@ export default function Navbar() {
           className="font-semibold tracking-tight flex items-center gap-1.5"
         >
           <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-gradient-to-tr from-indigo-500 via-purple-500 to-pink-500 text-[11px] font-bold text-slate-950 shadow-lg">
-            YC
+            HC
           </span>
           <span className="text-sm sm:text-base text-slate-100">
-            Your <span className="text-indigo-400">Name</span>
+            Harsh<span className="text-indigo-400">Chauhan</span>
           </span>
         </a>
 
