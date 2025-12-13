@@ -31,15 +31,15 @@ export default function HomePage() {
   const featuredProjects = projects.slice(0, 3);
 
   return (
-    <div className="space-y-32">
-      {/* ================= HERO SECTION ================= */}
+    <div className="space-y-24 md:space-y-32">
+      {/* ================= HERO ================= */}
       <section
         id="home"
-        className="relative w-full min-h-[calc(100vh-6rem)] px-6 sm:px-12 overflow-hidden"
+        className="relative w-full min-h-[calc(100vh-6rem)] overflow-hidden"
       >
-        <div className="mx-auto flex h-full max-w-7xl items-center">
-          <div className="grid w-full grid-cols-1 md:grid-cols-2 items-center gap-16">
-            {/* LEFT CONTENT */}
+        <div className="mx-auto max-w-6xl px-6 sm:px-8 lg:px-12 flex h-full items-center">
+          <div className="grid w-full grid-cols-1 md:grid-cols-2 items-center gap-12 lg:gap-16">
+            {/* LEFT */}
             <motion.div
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
@@ -52,7 +52,6 @@ export default function HomePage() {
                 Harsh <span className="text-indigo-400">Chauhan</span>
               </h1>
 
-              {/* Typing animation */}
               <TypeAnimation
                 sequence={[
                   "Computer Engineering Student",
@@ -76,7 +75,6 @@ export default function HomePage() {
                 experiences and love turning ideas into impactful products.
               </p>
 
-              {/* Buttons */}
               <div className="flex flex-wrap gap-4 pt-2">
                 <a
                   href="#projects"
@@ -93,7 +91,6 @@ export default function HomePage() {
                 </a>
               </div>
 
-              {/* Social icons */}
               <div className="flex gap-4 pt-4 text-slate-400">
                 <a
                   href="https://github.com/GitHarsh1511"
@@ -102,7 +99,6 @@ export default function HomePage() {
                 >
                   <Github />
                 </a>
-
                 <a
                   href="https://linkedin.com/in/harshchauhan115"
                   target="_blank"
@@ -110,7 +106,6 @@ export default function HomePage() {
                 >
                   <Linkedin />
                 </a>
-
                 <a
                   href="mailto:workwitharsh@gmail.com"
                   className="hover:text-indigo-400 transition"
@@ -126,38 +121,16 @@ export default function HomePage() {
               transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
               className="relative flex justify-center md:justify-end"
             >
-              {/* Shared alignment wrapper */}
-              <div className="group relative flex items-center justify-center h-80 w-80">
-                {/* Rotating gradient ring (smaller) */}
+              <div className="group relative flex h-80 w-80 items-center justify-center">
                 <motion.div
                   animate={{ rotate: 360 }}
-                  transition={{
-                    duration: 20,
-                    repeat: Infinity,
-                    ease: "linear",
-                  }}
-                  className="
-        absolute inset-0 rounded-full
-        bg-linear-to-tr from-indigo-500 via-purple-500 to-pink-500
-        blur-sm opacity-75
-        transition-opacity duration-300
-        group-hover:opacity-60
-      "
+                  transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                  className="absolute inset-0 rounded-full bg-linear-to-tr from-indigo-500 via-purple-500 to-pink-500 blur-sm opacity-70"
                 />
 
-                {/* Inner soft glow */}
                 <div className="absolute inset-10 rounded-full bg-indigo-500/15 blur-xl" />
 
-                {/* Profile image */}
-                <div
-                  className="
-        relative z-10 overflow-hidden rounded-full
-        border-4 border-slate-900 bg-slate-900
-        h-64 w-64
-        transition-transform duration-500 ease-out
-        group-hover:scale-110
-      "
-                >
+                <div className="relative z-10 h-64 w-64 overflow-hidden rounded-full border-4 border-slate-900 bg-slate-900 transition-transform duration-500 group-hover:scale-110">
                   <Image
                     src="/img/profile.jpg"
                     alt="Harsh Chauhan"
@@ -176,7 +149,7 @@ export default function HomePage() {
       {/* ================= ABOUT ================= */}
       <motion.section
         id="about"
-        className="space-y-4"
+        className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12 space-y-4"
         variants={fadeUp}
         initial="hidden"
         whileInView="visible"
@@ -184,7 +157,7 @@ export default function HomePage() {
         transition={{ duration: 0.6 }}
       >
         <h2 className="text-2xl font-semibold">About</h2>
-        <p className="text-sm text-slate-300 leading-relaxed">
+        <p className="text-sm text-slate-300 leading-relaxed max-w-2xl">
           I&apos;m a computer engineering student with a strong interest in
           Flutter, Next.js, and AI/ML. I enjoy building projects end-to-end with
           clean UI and maintainable code.
@@ -194,7 +167,7 @@ export default function HomePage() {
       {/* ================= PROJECTS ================= */}
       <motion.section
         id="projects"
-        className="space-y-6"
+        className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12 space-y-6"
         variants={staggerContainer}
         initial="hidden"
         whileInView="visible"
@@ -229,7 +202,7 @@ export default function HomePage() {
       {/* ================= CONTACT ================= */}
       <motion.section
         id="contact"
-        className="space-y-4"
+        className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12 space-y-4"
         variants={fadeUp}
         initial="hidden"
         whileInView="visible"
@@ -240,17 +213,15 @@ export default function HomePage() {
           I&apos;m open to internships, freelance work, and collaborations.
         </p>
 
-        <div className="space-y-2 text-sm">
-          <p>
-            Email:{" "}
-            <a
-              href="mailto:workwitharsh@gmail.com"
-              className="text-indigo-400 hover:underline"
-            >
-              workwitharsh@gmail.com
-            </a>
-          </p>
-        </div>
+        <p className="text-sm">
+          Email:{" "}
+          <a
+            href="mailto:workwitharsh@gmail.com"
+            className="text-indigo-400 hover:underline"
+          >
+            workwitharsh@gmail.com
+          </a>
+        </p>
       </motion.section>
     </div>
   );
