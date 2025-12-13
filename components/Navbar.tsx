@@ -69,17 +69,34 @@ export default function Navbar() {
     >
       <nav className="w-full px-6 sm:px-10 h-20 flex items-center justify-between">
         {/* Logo */}
-        <a href="#home" className="group flex items-center gap-2 shrink-0">
+        <a href="#home" className="group flex items-center gap-7 shrink-0">
+          {/* Logo */}
           <Image
             src="/logow.png"
             alt="Harsh Chauhan Logo"
             width={44}
             height={44}
             priority
-            className="transition-all duration-300 ease-out group-hover:scale-110"
+            className="
+      transition-all duration-300 ease-out
+      group-hover:scale-110"
           />
-          <span className="text-sm sm:text-base text-slate-100">
-            Harsh<span className="text-indigo-400">Chauhan</span>
+
+          {/* Name */}
+          <span
+            className="
+      flex items-center
+      text-xl sm:text-2xl font-semibold leading-none
+      text-slate-100
+      transition-all duration-300 ease-out
+      group-hover:scale-110
+      group-hover:text-indigo-300
+    "
+          >
+            Harsh
+            <span className="ml-1 text-indigo-400 group-hover:text-indigo-300">
+              Chauhan
+            </span>
           </span>
         </a>
 
