@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import BackToTop from "@/components/ui/BackToTop";
+import { Analytics } from "@vercel/analytics/next"
 
 
 const plusJakarta = Plus_Jakarta_Sans({
@@ -40,6 +41,7 @@ export default function RootLayout({
         <main className="w-full pt-24 pb-16">
           {children}
           <BackToTop />
+          <Analytics />
         </main>
 
         
