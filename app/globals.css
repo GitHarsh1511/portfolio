@@ -71,3 +71,7 @@ body {
 section[id] {
   scroll-margin-top: 6rem; /* 96px */
 }
+
+html {
+  scroll-behavior: smooth;
+}
