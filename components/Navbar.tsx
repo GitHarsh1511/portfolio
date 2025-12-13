@@ -91,9 +91,9 @@ export default function Navbar() {
               priority
               className="transition-all duration-300 group-hover:scale-110"
             />
-            <span className="flex items-center text-xl sm:text-2xl font-semibold leading-none text-slate-100 transition-all duration-300 group-hover:text-indigo-300">
+            <span className="flex items-center text-xl sm:text-2xl font-semibold leading-none text-slate-100 transition-all duration-300 group-hover:text-green-300">
               Harsh
-              <span className="ml-1 text-indigo-400 group-hover:text-indigo-300">
+              <span className="ml-1 text-indigo-400 group-hover:text-green-300">
                 Chauhan
               </span>
             </span>
