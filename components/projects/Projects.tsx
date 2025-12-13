@@ -1,18 +1,29 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { ExternalLink, Github } from "lucide-react";
+import ProjectModal from "./ProjectModal";
 
-const projects = [
+interface Project {
+  title: string;
+  description: string;
+  image: string;
+  tech: string[];
+  live: string;
+  github: string;
+}
+
+const projects: Project[] = [
   {
     title: "CleanSphere",
     description:
       "A community-driven urban cleanliness tracker that allows users to report and monitor cleanliness issues.",
-    image: "/projects/cleansphere.png", // put image in public/projects
+    image: "/projects/cleansphere.png",
     tech: ["Flutter", "Firebase", "Google Maps"],
     live: "#",
-    github: "#",
+    github: "https://github.com/GitHarsh1511",
   },
   {
     title: "Voyager App",
@@ -28,19 +39,21 @@ const projects = [
     description:
       "My personal developer portfolio built with Next.js, Tailwind CSS, and Framer Motion.",
     image: "/projects/portfolio.png",
-    tech: ["Next.js", "Tailwind", "Framer Motion"],
+    tech: ["Next.js", "Tailwind CSS", "Framer Motion"],
     live: "#",
     github: "#",
   },
 ];
 
 export default function Projects() {
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+
   return (
     <section
       id="projects"
       className="relative w-full max-w-7xl mx-auto px-6 py-28"
     >
-      {/* Heading */}
+      {/* Section Heading */}
       <motion.h2
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -60,8 +73,10 @@ export default function Projects() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
             viewport={{ once: true }}
+            onClick={() => setSelectedProject(project)}
             className="
               group
+              cursor-pointer
               bg-slate-900/70
               border border-slate-800
               rounded-2xl
@@ -83,7 +98,7 @@ export default function Projects() {
               />
             </div>
 
-            {/* Content */}
+            {/* Card Content */}
             <div className="p-6">
               <h3 className="text-xl font-semibold text-white">
                 {project.title}
@@ -105,30 +120,28 @@ export default function Projects() {
                 ))}
               </div>
 
-              {/* Buttons */}
-              <div className="flex gap-4 mt-6">
-                <a
-                  href={project.live}
-                  target="_blank"
-                  className="flex items-center gap-2 text-sm text-cyan-400 hover:underline"
-                >
+              {/* Action Buttons (optional preview) */}
+              <div className="flex gap-4 mt-6 text-sm">
+                <span className="flex items-center gap-2 text-cyan-400">
                   <ExternalLink size={16} />
-                  Live Demo
-                </a>
+                  View Details
+                </span>
 
-                <a
-                  href={project.github}
-                  target="_blank"
-                  className="flex items-center gap-2 text-sm text-slate-300 hover:underline"
-                >
+                <span className="flex items-center gap-2 text-slate-300">
                   <Github size={16} />
                   Source Code
-                </a>
+                </span>
               </div>
             </div>
           </motion.div>
         ))}
       </div>
+
+      {/* Project Modal */}
+      <ProjectModal
+        project={selectedProject}
+        onClose={() => setSelectedProject(null)}
+      />
     </section>
   );
 }

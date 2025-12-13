@@ -7,6 +7,7 @@ import { TypeAnimation } from "react-type-animation";
 import { Github, Linkedin, Mail } from "lucide-react";
 import { projects } from "@/data/projects";
 
+
 /* ---------------- Animations ---------------- */
 
 const fadeUp = {
@@ -155,6 +156,7 @@ export default function HomePage() {
       <main>
         <AboutSection />
         <Projects />
+        
       </main>
       
 
