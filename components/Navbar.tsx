@@ -1,5 +1,5 @@
 "use client";
-
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
@@ -27,15 +27,21 @@ export default function Navbar() {
           : "bg-transparent"
       }`}
     >
-      <nav className="max-w-5xl mx-auto px-4 h-16 flex items-center justify-between">
+      <nav className="w-full px-6 sm:px-10 h-20 flex items-center justify-between">
         {/* Logo / Name */}
-        <a
-          href="#home"
-          className="font-semibold tracking-tight flex items-center gap-1.5"
-        >
-          <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-linear-to-tr from-indigo-500 via-purple-500 to-pink-500 text-[11px] font-bold text-slate-950 shadow-lg">
-            HC
-          </span>
+        <a href="#home" className="group flex items-center gap-2 shrink-0">
+          <Image
+            src="/logow.png" // make sure logo is inside /public
+            alt="Your Logo"
+            width={36}
+            height={36}
+            priority
+            className="
+      transition-all duration-300 ease-out
+      group-hover:scale-110
+      group-hover:drop-shadow-[0_0_12px_rgba(99,102,241,0.6)]
+    "
+          />
           <span className="text-sm sm:text-base text-slate-100">
             Harsh<span className="text-indigo-400">Chauhan</span>
           </span>
