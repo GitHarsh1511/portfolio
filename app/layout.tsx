@@ -11,6 +11,7 @@ const plusJakarta = Plus_Jakarta_Sans({
 
 export const metadata: Metadata = {
   title: "Harsh Chauhan | Portfolio",
+  
   description:
     "Computer Engineering student building modern web & mobile experiences.",
 };
