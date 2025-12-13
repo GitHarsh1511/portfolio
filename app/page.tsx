@@ -127,15 +127,8 @@ export default function HomePage() {
               className="relative flex justify-center md:justify-end"
             >
               {/* Shared alignment wrapper */}
-              <div
-                className="
-      group relative flex items-center justify-center
-      h-80 w-80
-      sm:h-88 sm:w-88
-      md:h-96 md:w-96
-    "
-              >
-                {/* Rotating gradient ring (reduced glow) */}
+              <div className="group relative flex items-center justify-center h-80 w-80">
+                {/* Rotating gradient ring (smaller) */}
                 <motion.div
                   animate={{ rotate: 360 }}
                   transition={{
@@ -144,42 +137,33 @@ export default function HomePage() {
                     ease: "linear",
                   }}
                   className="
-    absolute inset-0 rounded-full
-    bg-gradient-to-tr from-indigo-500 via-purple-500 to-pink-500
-    blur-sm opacity-75
-    transition-opacity duration-300
-    group-hover:opacity-60
-  "
+        absolute inset-0 rounded-full
+        bg-linear-to-tr from-indigo-500 via-purple-500 to-pink-500
+        blur-sm opacity-75
+        transition-opacity duration-300
+        group-hover:opacity-60
+      "
                 />
 
-                {/* Soft inner glow (reduced) */}
-                <div
-                  className="
-    absolute inset-10 rounded-full
-    bg-indigo-500/15 blur-xl
-    transition-opacity duration-300
-    group-hover:opacity-50
-  "
-                />
+                {/* Inner soft glow */}
+                <div className="absolute inset-10 rounded-full bg-indigo-500/15 blur-xl" />
 
                 {/* Profile image */}
                 <div
                   className="
         relative z-10 overflow-hidden rounded-full
         border-4 border-slate-900 bg-slate-900
-        h-56 w-56
-        sm:h-64 sm:w-64
-        md:h-72 md:w-72
+        h-64 w-64
         transition-transform duration-500 ease-out
         group-hover:scale-110
-        group-hover:rotate-1
       "
                 >
                   <Image
                     src="/img/profile.jpg"
                     alt="Harsh Chauhan"
-                    fill
-                    className="object-cover"
+                    width={256}
+                    height={256}
+                    className="rounded-full object-cover"
                     priority
                   />
                 </div>
