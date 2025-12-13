@@ -59,7 +59,7 @@ export default function Contact() {
           <Mail className="w-7 h-7 text-cyan-400" />
           <span className="text-slate-200 font-medium">Email</span>
           <span className="text-sm text-slate-400">
-            Connect on Email
+            workwitharsh@gmail.com
           </span>
         </motion.a>
 
@@ -89,7 +89,7 @@ export default function Contact() {
           <Github className="w-7 h-7 text-cyan-400" />
           <span className="text-slate-200 font-medium">GitHub</span>
           <span className="text-sm text-slate-400">
-            Connect on GitHub
+            Follow on GitHub
           </span>
         </motion.a>
 
