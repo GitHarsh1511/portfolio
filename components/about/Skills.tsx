@@ -35,7 +35,7 @@ export default function Skills() {
     <section className="mt-28">
       {/* Section Heading */}
       <motion.h3
-        initial={false}
+        initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
         viewport={{ once: true }}
@@ -56,7 +56,7 @@ export default function Skills() {
             viewport={{ once: true }}
             className="
               group
-              bg-gradient-to-br from-slate-900/80 to-slate-950
+              bg-linear-to-br from-slate-900/80 to-slate-950
               border border-slate-800
               rounded-2xl
               p-6
