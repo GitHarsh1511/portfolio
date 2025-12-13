@@ -15,35 +15,37 @@ export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
 
-  // Glass effect on scroll
+  /* ================================
+     Glass effect on scroll
+  ================================= */
   useEffect(() => {
     const onScroll = () => setIsScrolled(window.scrollY > 10);
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // ✅ FIXED Active section detection (Contact included)
+  /* ================================
+     Active section detection (scroll)
+  ================================= */
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY + 120;
       const pageHeight = document.documentElement.scrollHeight;
       const windowHeight = window.innerHeight;
 
-      // ✅ If near bottom → activate Contact
+      // ✅ Bottom of page → Contact active
       if (window.scrollY + windowHeight >= pageHeight - 50) {
         setActiveSection("contact");
         return;
       }
 
       for (const section of sections) {
-        const element = document.getElementById(section.id);
-        if (!element) continue;
-
-        const { offsetTop, offsetHeight } = element;
+        const el = document.getElementById(section.id);
+        if (!el) continue;
 
         if (
-          scrollPosition >= offsetTop &&
-          scrollPosition < offsetTop + offsetHeight
+          scrollPosition >= el.offsetTop &&
+          scrollPosition < el.offsetTop + el.offsetHeight
         ) {
           setActiveSection(section.id);
           break;
@@ -70,7 +72,7 @@ export default function Navbar() {
         <a href="#home" className="group flex items-center gap-2 shrink-0">
           <Image
             src="/logow.png"
-            alt="Your Logo"
+            alt="Harsh Chauhan Logo"
             width={44}
             height={44}
             priority
@@ -81,8 +83,8 @@ export default function Navbar() {
           </span>
         </a>
 
-        {/* Links */}
-        <div className="flex items-center gap-4 text-sm sm:gap-6 sm:text-base">
+        {/* Nav links */}
+        <div className="flex items-center gap-4 sm:gap-6 text-sm sm:text-base">
           {sections.map((section) => {
             const isActive = activeSection === section.id;
 
@@ -90,32 +92,61 @@ export default function Navbar() {
               <a
                 key={section.id}
                 href={`#${section.id}`}
-                className="relative px-2 py-1 text-slate-300 hover:text-indigo-300 transition-colors"
+                className={`
+                  group relative px-2 py-1
+                  transition-all duration-200
+                  ${
+                    isActive
+                      ? "text-indigo-300 font-semibold"
+                      : "text-slate-300 hover:text-indigo-300 hover:font-semibold"
+                  }
+                `}
               >
                 {section.label}
 
-                {/* ✅ Animated underline */}
+                {/* Hover + Active underline */}
                 <span
-                  className={`absolute left-0 -bottom-1 h-[2px] rounded-full bg-indigo-400 transition-all duration-300 ${
-                    isActive ? "w-full opacity-100" : "w-0 opacity-0"
-                  }`}
+                  className={`
+                    absolute left-0 -bottom-1 h-[2px] w-full
+                    origin-left rounded-full bg-indigo-400
+                    transition-transform duration-300
+                    ${
+                      isActive
+                        ? "scale-x-100"
+                        : "scale-x-0 group-hover:scale-x-100"
+                    }
+                  `}
                 />
               </a>
             );
           })}
 
-          {/* Resume */}
+          {/* Resume (hover only, no scroll) */}
           <Link
             href="/resume"
-            className="relative px-2 py-1 text-slate-300 hover:text-indigo-300 transition-colors"
+            className="
+              group relative px-2 py-1
+              text-slate-300
+              transition-all duration-200
+              hover:text-indigo-300 hover:font-semibold
+            "
           >
             Resume
+            <span
+              className="
+                absolute left-0 -bottom-1 h-[2px] w-full
+                origin-left scale-x-0
+                rounded-full bg-indigo-400
+                transition-transform duration-300
+                group-hover:scale-x-100
+              "
+            />
           </Link>
 
           {/* CTA */}
           <a
             href="#contact"
-            className="group inline-flex items-center gap-1 px-3 py-1.5 rounded-full text-xs font-medium bg-indigo-500/90 hover:bg-indigo-400 text-slate-950 shadow-lg shadow-indigo-500/25"
+            className="inline-flex items-center gap-1 px-3 py-1.5 rounded-full text-xs font-medium bg-indigo-500/90 hover:bg-indigo-400 text-slate-950 shadow-lg shadow-indigo-500/25"
           >
             Let&apos;s talk
           </a>
