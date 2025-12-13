@@ -5,6 +5,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { TypeAnimation } from "react-type-animation";
 import { Github, Linkedin, Mail } from "lucide-react";
+import { projects } from "@/data/projects";
 import Contact from "@/components/contact/Contact";
 import Footer from "@/components/footer/Footer";
 
@@ -30,6 +31,7 @@ const cardVariant = {
 /* ================= PAGE ================= */
 
 export default function HomePage() {
+  const featuredProjects = projects.slice(0, 3);
 
   return (
     <div className="space-y-24 md:space-y-32">
