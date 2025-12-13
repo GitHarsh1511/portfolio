@@ -3,6 +3,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import { Plus_Jakarta_Sans } from "next/font/google";
+import BackToTop from "@/components/ui/BackToTop";
+
 
 const plusJakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -37,11 +39,10 @@ export default function RootLayout({
         {/* IMPORTANT: No width constraint here */}
         <main className="w-full pt-24 pb-16">
           {children}
+          <BackToTop />
         </main>
 
-        <footer className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12 pb-8 text-[11px] text-slate-500 flex justify-between">
-          <span>© {new Date().getFullYear()} Harsh Chauhan</span>
-        </footer>
+        
       </body>
     </html>
   );

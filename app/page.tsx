@@ -6,7 +6,8 @@ import { motion } from "framer-motion";
 import { TypeAnimation } from "react-type-animation";
 import { Github, Linkedin, Mail } from "lucide-react";
 import { projects } from "@/data/projects";
-
+import Contact from "@/components/contact/Contact";
+import Footer from "@/components/footer/Footer";
 
 /* ---------------- Animations ---------------- */
 
@@ -156,34 +157,9 @@ export default function HomePage() {
       <main>
         <AboutSection />
         <Projects />
-        
+        <Contact />
+        <Footer />
       </main>
-      
-
-      {/* ================= CONTACT ================= */}
-      <motion.section
-        id="contact"
-        className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12 space-y-4"
-        variants={fadeUp}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.3 }}
-      >
-        <h2 className="text-2xl font-semibold">Contact</h2>
-        <p className="text-sm text-slate-300">
-          I&apos;m open to internships, freelance work, and collaborations.
-        </p>
-
-        <p className="text-sm">
-          Email:{" "}
-          <a
-            href="mailto:workwitharsh@gmail.com"
-            className="text-indigo-400 hover:underline"
-          >
-            workwitharsh@gmail.com
-          </a>
-        </p>
-      </motion.section>
     </div>
   );
 }
