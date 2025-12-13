@@ -1,5 +1,5 @@
 "use client";
-
+import AboutSection from "@/components/about/AboutSection";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { TypeAnimation } from "react-type-animation";
@@ -124,7 +124,11 @@ export default function HomePage() {
               <div className="group relative flex h-80 w-80 items-center justify-center">
                 <motion.div
                   animate={{ rotate: 360 }}
-                  transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                  transition={{
+                    duration: 20,
+                    repeat: Infinity,
+                    ease: "linear",
+                  }}
                   className="absolute inset-0 rounded-full bg-linear-to-tr from-indigo-500 via-purple-500 to-pink-500 blur-sm opacity-70"
                 />
 
@@ -147,7 +151,10 @@ export default function HomePage() {
       </section>
 
       {/* ================= ABOUT ================= */}
-      <motion.section
+      <main>
+        <AboutSection />
+      </main>
+      {/* <motion.section
         id="about"
         className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12 space-y-4"
         variants={fadeUp}
@@ -162,7 +169,7 @@ export default function HomePage() {
           Flutter, Next.js, and AI/ML. I enjoy building projects end-to-end with
           clean UI and maintainable code.
         </p>
-      </motion.section>
+      </motion.section> */}
 
       {/* ================= PROJECTS ================= */}
       <motion.section
