@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import Education from "./Education";
 import Experience from "./Experience";
+import Skills from "./Skills";
 
 export default function AboutSection() {
   return (
@@ -10,7 +11,7 @@ export default function AboutSection() {
       id="about"
       className="relative w-full max-w-7xl mx-auto px-6 py-28"
     >
-      {/* Heading */}
+      {/* Section Heading */}
       <motion.h2
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -30,18 +31,19 @@ export default function AboutSection() {
         className="max-w-3xl mx-auto text-center text-slate-300 text-lg leading-relaxed"
       >
         <p>
-          I am a passionate{" "}
+          I am a{" "}
           <span className="text-white font-semibold">
             Flutter & Web Developer
           </span>{" "}
-          with a strong interest in building visually appealing, scalable, and
-          user-friendly applications.
+          with hands-on experience in building scalable and user-focused
+          applications. I enjoy creating clean UI, smooth interactions, and
+          efficient application architectures.
         </p>
 
         <p className="mt-4">
-          I enjoy transforming ideas into real-world digital solutions using
-          modern technologies like Flutter, Next.js, Firebase, and clean UI
-          design principles.
+          Through academic projects and a Flutter development internship, I
+          have worked on real-world applications involving authentication,
+          state management, databases, and modern UI design.
         </p>
       </motion.div>
 
@@ -58,31 +60,23 @@ export default function AboutSection() {
         </h3>
 
         <p className="text-slate-400 text-lg leading-relaxed">
-          My academic journey built a strong foundation in programming,
-          software development, and real-world problem solving through
-          projects, internships, and continuous learning.
+          My academic journey in computer applications has provided me with a
+          strong foundation in software development principles. Alongside
+          coursework, I focused on practical learning through projects and
+          internships to bridge the gap between theory and real-world
+          application development.
         </p>
       </motion.div>
 
       {/* Education & Experience */}
       <div className="mt-24 grid md:grid-cols-2 gap-12">
-        <motion.div
-          initial={{ opacity: 0, x: -40 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-        >
-          <Education />
-        </motion.div>
+        <Education />
+        <Experience />
+      </div>
 
-        <motion.div
-          initial={{ opacity: 0, x: 40 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-        >
-          <Experience />
-        </motion.div>
+      {/* Skills Section BELOW Education & Experience */}
+      <div className="mt-24">
+        <Skills />
       </div>
     </section>
   );
