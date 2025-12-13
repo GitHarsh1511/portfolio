@@ -35,7 +35,7 @@ export default function Skills() {
     <section className="mt-28">
       {/* Section Heading */}
       <motion.h3
-        initial={{ opacity: 0, y: 30 }}
+        initial={false}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
         viewport={{ once: true }}
