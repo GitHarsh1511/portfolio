@@ -167,6 +167,21 @@ export default function Navbar() {
                 <X size={28} />
               </button>
 
+              {/* Logo inside drawer */}
+              <div className="flex flex-col items-center gap-3 mb-10">
+                <Image
+                  src="/logow.png"
+                  alt="Harsh Chauhan Logo"
+                  width={56}
+                  height={56}
+                  priority
+                  className="transition-transform duration-300 hover:scale-110"
+                />
+                <span className="text-xl font-semibold text-slate-100">
+                  Harsh<span className="text-indigo-400">Chauhan</span>
+                </span>
+              </div>
+
               {/* Mobile Links */}
               <div className="flex flex-col gap-6 text-lg items-center text-center">
                 {sections.map((section) => {
