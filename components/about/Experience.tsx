@@ -1,24 +1,38 @@
+"use client";
+
+import { motion } from "framer-motion";
 import { Briefcase } from "lucide-react";
 
-const experiences = [
+const experienceData = [
   {
     role: "Flutter Developer Intern",
     company: "Mobile App Development Internship",
-    year: "2024",
-    details: [
-      "Developed Flutter applications using clean architecture",
-      "Implemented authentication & state management",
+    duration: "2024",
+    description: [
+      "Developed mobile applications using Flutter & Dart",
+      "Implemented authentication and user workflows",
       "Worked with Firebase, SQLite & SharedPreferences",
-      "Enhanced UI with animations and reusable widgets",
+      "Improved UI using animations and reusable widgets",
+    ],
+    highlight: true,
+  },
+  {
+    role: "Academic Projects & Freelance Learning",
+    company: "Self-driven & University Projects",
+    duration: "2023 – Present",
+    description: [
+      "Built multiple Flutter and web-based applications",
+      "Focused on clean architecture and scalable UI",
+      "Hands-on experience with REST APIs and local storage",
     ],
   },
 ];
 
 export default function Experience() {
   return (
-    <div className="relative rounded-2xl bg-slate-900/70 border border-slate-800 p-8">
-      {/* Heading */}
-      <div className="flex items-center gap-3 mb-8">
+    <div className="rounded-2xl bg-slate-900/70 border border-slate-800 p-6 sm:p-8">
+      {/* Section Heading */}
+      <div className="flex items-center gap-3 mb-10">
         <Briefcase className="w-6 h-6 text-purple-400" />
         <h4 className="text-2xl font-semibold text-purple-400">
           Experience
@@ -26,25 +40,66 @@ export default function Experience() {
       </div>
 
       {/* Timeline */}
-      <div className="border-l border-slate-700 pl-6 space-y-8">
-        {experiences.map((exp) => (
-          <div key={exp.role} className="relative">
-            <span className="absolute -left-[33px] top-1 w-3 h-3 bg-purple-400 rounded-full" />
+      <div className="relative space-y-8 sm:space-y-12">
+        {/* Vertical line */}
+        <span className="absolute left-4 top-2 bottom-0 w-px bg-slate-700" />
 
-            <h5 className="text-xl font-medium text-white">
-              {exp.role}
-            </h5>
+        {experienceData.map((exp, index) => (
+          <motion.div
+            key={index}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: index * 0.1 }}
+            viewport={{ once: true }}
+            className="flex items-start gap-4 sm:gap-6"
+          >
+            {/* Dot column */}
+            <div className="relative w-8 flex justify-center">
+              <motion.span
+                initial={{ scale: 0 }}
+                whileInView={{ scale: 1 }}
+                transition={{ duration: 0.4 }}
+                viewport={{ once: true }}
+                className="w-3 h-3 bg-purple-400 rounded-full mt-2"
+              />
+            </div>
 
-            <p className="text-slate-400">
-              {exp.company} • {exp.year}
-            </p>
+            {/* Card */}
+            <div
+              className={`
+                flex-1
+                bg-slate-950/70
+                border border-slate-800
+                rounded-xl
+                p-4 sm:p-6
+                shadow-md
+                transition-all
+                duration-300
+                hover:-translate-y-1
+                hover:shadow-xl
+                hover:border-purple-400/60
+                ${exp.highlight ? "ring-1 ring-purple-400/30" : ""}
+              `}
+            >
+              <h5 className="text-lg sm:text-xl font-semibold text-white">
+                {exp.role}
+              </h5>
 
-            <ul className="list-disc list-inside text-slate-300 mt-3 space-y-1">
-              {exp.details.map((point) => (
-                <li key={point}>{point}</li>
-              ))}
-            </ul>
-          </div>
+              <p className="text-slate-400 mt-1">
+                {exp.company}
+              </p>
+
+              <p className="text-green-400 font-medium mt-3">
+                {exp.duration}
+              </p>
+
+              <ul className="list-disc list-inside text-slate-300 mt-4 space-y-1">
+                {exp.description.map((point, i) => (
+                  <li key={i}>{point}</li>
+                ))}
+              </ul>
+            </div>
+          </motion.div>
         ))}
       </div>
     </div>

@@ -1,3 +1,6 @@
+"use client";
+
+import { motion } from "framer-motion";
 import { GraduationCap, Award } from "lucide-react";
 
 const educationData = [
@@ -8,6 +11,7 @@ const educationData = [
     status: "Pursuing",
     scoreLabel: "CGPA",
     scoreValue: "9.32",
+    highlight: true,
   },
   {
     title: "HSC Science (A Group)",
@@ -29,9 +33,9 @@ const educationData = [
 
 export default function Education() {
   return (
-    <div className="rounded-2xl bg-slate-900/70 border border-slate-800 p-8">
-      {/* Heading */}
-      <div className="flex items-center gap-3 mb-12">
+    <div className="rounded-2xl bg-slate-900/70 border border-slate-800 p-6 sm:p-8">
+      {/* Section Heading */}
+      <div className="flex items-center gap-3 mb-10">
         <GraduationCap className="w-6 h-6 text-cyan-400" />
         <h4 className="text-2xl font-semibold text-cyan-400">
           Education
@@ -39,20 +43,48 @@ export default function Education() {
       </div>
 
       {/* Timeline */}
-      <div className="relative space-y-12">
+      <div className="relative space-y-8 sm:space-y-12">
         {/* Vertical line */}
-        <span className="absolute left-3.75 top-1.5 bottom-0 w-px bg-slate-700" />
+        <span className="absolute left-4 top-2 bottom-0 w-px bg-slate-700" />
 
         {educationData.map((edu, index) => (
-          <div key={index} className="flex items-start gap-6">
+          <motion.div
+            key={index}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: index * 0.1 }}
+            viewport={{ once: true }}
+            className="flex items-start gap-4 sm:gap-6"
+          >
             {/* Dot column */}
             <div className="relative w-8 flex justify-center">
-              <span className="w-3 h-3 bg-cyan-400 rounded-full mt-2" />
+              <motion.span
+                initial={{ scale: 0 }}
+                whileInView={{ scale: 1 }}
+                transition={{ duration: 0.4 }}
+                viewport={{ once: true }}
+                className="w-3 h-3 bg-cyan-400 rounded-full mt-2"
+              />
             </div>
 
-            {/* Card column */}
-            <div className="flex-1 bg-slate-950/70 border border-slate-800 rounded-xl p-6 shadow-md">
-              <h5 className="text-xl font-semibold text-white">
+            {/* Card */}
+            <div
+              className={`
+                flex-1
+                bg-slate-950/70
+                border border-slate-800
+                rounded-xl
+                p-4 sm:p-6
+                shadow-md
+                transition-all
+                duration-300
+                hover:-translate-y-1
+                hover:shadow-xl
+                hover:border-cyan-400/60
+                ${edu.highlight ? "ring-1 ring-cyan-400/30" : ""}
+              `}
+            >
+              <h5 className="text-lg sm:text-xl font-semibold text-white">
                 {edu.title}
               </h5>
 
@@ -72,7 +104,7 @@ export default function Education() {
                 <span>{edu.scoreValue}</span>
               </div>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
     </div>
