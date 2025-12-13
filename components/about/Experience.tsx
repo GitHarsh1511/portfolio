@@ -34,9 +34,7 @@ export default function Experience() {
       {/* Section Heading */}
       <div className="flex items-center gap-3 mb-10">
         <Briefcase className="w-6 h-6 text-purple-400" />
-        <h4 className="text-2xl font-semibold text-purple-400">
-          Experience
-        </h4>
+        <h4 className="text-2xl font-semibold text-purple-400">Experience</h4>
       </div>
 
       {/* Timeline */}
@@ -51,17 +49,11 @@ export default function Experience() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
             viewport={{ once: true }}
-            className="flex items-start gap-4 sm:gap-6"
+            className="flex items-center gap-4 sm:gap-6"
           >
             {/* Dot column */}
-            <div className="relative w-8 flex justify-center">
-              <motion.span
-                initial={{ scale: 0 }}
-                whileInView={{ scale: 1 }}
-                transition={{ duration: 0.4 }}
-                viewport={{ once: true }}
-                className="w-3 h-3 bg-purple-400 rounded-full mt-2"
-              />
+            <div className="relative w-8 flex justify-center items-center">
+              <motion.span className="w-3 h-3 bg-purple-400 rounded-full" />
             </div>
 
             {/* Card */}
@@ -85,13 +77,9 @@ export default function Experience() {
                 {exp.role}
               </h5>
 
-              <p className="text-slate-400 mt-1">
-                {exp.company}
-              </p>
+              <p className="text-slate-400 mt-1">{exp.company}</p>
 
-              <p className="text-green-400 font-medium mt-3">
-                {exp.duration}
-              </p>
+              <p className="text-green-400 font-medium mt-3">{exp.duration}</p>
 
               <ul className="list-disc list-inside text-slate-300 mt-4 space-y-1">
                 {exp.description.map((point, i) => (

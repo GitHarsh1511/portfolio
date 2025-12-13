@@ -37,9 +37,7 @@ export default function Education() {
       {/* Section Heading */}
       <div className="flex items-center gap-3 mb-10">
         <GraduationCap className="w-6 h-6 text-cyan-400" />
-        <h4 className="text-2xl font-semibold text-cyan-400">
-          Education
-        </h4>
+        <h4 className="text-2xl font-semibold text-cyan-400">Education</h4>
       </div>
 
       {/* Timeline */}
@@ -54,17 +52,11 @@ export default function Education() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
             viewport={{ once: true }}
-            className="flex items-start gap-4 sm:gap-6"
+            className="flex items-center gap-4 sm:gap-6"
           >
             {/* Dot column */}
-            <div className="relative w-8 flex justify-center">
-              <motion.span
-                initial={{ scale: 0 }}
-                whileInView={{ scale: 1 }}
-                transition={{ duration: 0.4 }}
-                viewport={{ once: true }}
-                className="w-3 h-3 bg-cyan-400 rounded-full mt-2"
-              />
+            <div className="relative w-8 flex justify-center items-center">
+              <span className="w-3 h-3 bg-cyan-400 rounded-full" />
             </div>
 
             {/* Card */}
@@ -88,9 +80,7 @@ export default function Education() {
                 {edu.title}
               </h5>
 
-              <p className="text-slate-400 mt-1">
-                {edu.institute}
-              </p>
+              <p className="text-slate-400 mt-1">{edu.institute}</p>
 
               <p className="text-green-400 font-medium mt-3">
                 {edu.duration} | {edu.status}
@@ -98,9 +88,7 @@ export default function Education() {
 
               <div className="flex items-center gap-2 mt-4 text-slate-300">
                 <Award className="w-4 h-4 text-yellow-400" />
-                <span className="font-medium">
-                  {edu.scoreLabel}:
-                </span>
+                <span className="font-medium">{edu.scoreLabel}:</span>
                 <span>{edu.scoreValue}</span>
               </div>
             </div>
