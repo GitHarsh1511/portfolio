@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { usePathname } from "next/navigation";
 
 const sections = [
   { id: "home", label: "Home" },
@@ -14,6 +15,9 @@ const sections = [
 ];
 
 export default function Navbar() {
+  const pathname = usePathname();
+  const isHome = pathname === "/";
+
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -25,8 +29,10 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  /* ================= Active section ================= */
+  /* ================= Active section (only on home) ================= */
   useEffect(() => {
+    if (!isHome) return;
+
     const handleScroll = () => {
       const scrollPosition = window.scrollY + 120;
       const pageHeight = document.documentElement.scrollHeight;
@@ -54,7 +60,7 @@ export default function Navbar() {
     window.addEventListener("scroll", handleScroll);
     handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [isHome]);
 
   /* ================= Lock body scroll ================= */
   useEffect(() => {
@@ -73,7 +79,10 @@ export default function Navbar() {
       >
         <nav className="w-full px-6 sm:px-10 h-20 flex items-center justify-between">
           {/* Logo */}
-          <a href="#home" className="group flex items-center gap-4 shrink-0">
+          <a
+            href={isHome ? "#home" : "/#home"}
+            className="group flex items-center gap-4 shrink-0"
+          >
             <Image
               src="/logow.png"
               alt="Harsh Chauhan Logo"
@@ -93,12 +102,12 @@ export default function Navbar() {
           {/* Desktop Nav */}
           <div className="hidden md:flex items-center gap-6 text-base">
             {sections.map((section) => {
-              const isActive = activeSection === section.id;
+              const isActive = isHome && activeSection === section.id;
 
               return (
                 <a
                   key={section.id}
-                  href={`#${section.id}`}
+                  href={isHome ? `#${section.id}` : `/#${section.id}`}
                   className={`group relative px-2 py-1 transition ${
                     isActive
                       ? "text-indigo-300 font-semibold"
@@ -158,7 +167,7 @@ export default function Navbar() {
               exit={{ x: "100%" }}
               transition={{ type: "spring", stiffness: 300, damping: 30 }}
             >
-              {/* Close button */}
+              {/* Close */}
               <button
                 onClick={() => setMobileOpen(false)}
                 className="self-end text-slate-200 mb-6"
@@ -167,7 +176,7 @@ export default function Navbar() {
                 <X size={28} />
               </button>
 
-              {/* Logo inside drawer */}
+              {/* Logo */}
               <div className="flex flex-col items-center gap-3 mb-10">
                 <Image
                   src="/logow.png"
@@ -175,22 +184,21 @@ export default function Navbar() {
                   width={56}
                   height={56}
                   priority
-                  className="transition-transform duration-300 hover:scale-110"
                 />
                 <span className="text-xl font-semibold text-slate-100">
                   Harsh<span className="text-indigo-400">Chauhan</span>
                 </span>
               </div>
 
-              {/* Mobile Links */}
+              {/* Links */}
               <div className="flex flex-col gap-6 text-lg items-center text-center">
                 {sections.map((section) => {
-                  const isActive = activeSection === section.id;
+                  const isActive = isHome && activeSection === section.id;
 
                   return (
                     <a
                       key={section.id}
-                      href={`#${section.id}`}
+                      href={isHome ? `#${section.id}` : `/#${section.id}`}
                       onClick={() => setMobileOpen(false)}
                       className={`relative font-medium transition ${
                         isActive
@@ -217,7 +225,7 @@ export default function Navbar() {
                 </Link>
 
                 <a
-                  href="#contact"
+                  href={isHome ? "#contact" : "/#contact"}
                   onClick={() => setMobileOpen(false)}
                   className="mt-6 inline-flex justify-center rounded-full bg-indigo-500 px-4 py-2 text-sm font-medium text-slate-950"
                 >
