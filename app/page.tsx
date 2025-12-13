@@ -1,5 +1,6 @@
 "use client";
 import AboutSection from "@/components/about/AboutSection";
+import Projects from "@/components/projects/Projects";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { TypeAnimation } from "react-type-animation";
@@ -153,58 +154,9 @@ export default function HomePage() {
       {/* ================= ABOUT ================= */}
       <main>
         <AboutSection />
+        <Projects />
       </main>
-      {/* <motion.section
-        id="about"
-        className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12 space-y-4"
-        variants={fadeUp}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.3 }}
-        transition={{ duration: 0.6 }}
-      >
-        <h2 className="text-2xl font-semibold">About</h2>
-        <p className="text-sm text-slate-300 leading-relaxed max-w-2xl">
-          I&apos;m a computer engineering student with a strong interest in
-          Flutter, Next.js, and AI/ML. I enjoy building projects end-to-end with
-          clean UI and maintainable code.
-        </p>
-      </motion.section> */}
-
-      {/* ================= PROJECTS ================= */}
-      <motion.section
-        id="projects"
-        className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12 space-y-6"
-        variants={staggerContainer}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.25 }}
-      >
-        <motion.div variants={fadeUp}>
-          <h2 className="text-2xl font-semibold">Projects</h2>
-          <p className="text-slate-400 text-sm">
-            A few things I&apos;ve been building recently.
-          </p>
-        </motion.div>
-
-        <div className="grid gap-6 md:grid-cols-2">
-          {featuredProjects.map((project, index) => (
-            <motion.article
-              key={project.slug}
-              variants={cardVariant}
-              whileHover={{ y: -6, scale: 1.01 }}
-              transition={{ type: "spring", stiffness: 260, damping: 20 }}
-              className={`rounded-2xl border border-slate-800 bg-slate-900/40 p-5 space-y-3 ${
-                index === 2 ? "md:col-span-2" : ""
-              }`}
-            >
-              <h3 className="font-semibold">{project.title}</h3>
-              <p className="text-xs text-slate-400">{project.tech}</p>
-              <p className="text-sm text-slate-300">{project.description}</p>
-            </motion.article>
-          ))}
-        </div>
-      </motion.section>
+      
 
       {/* ================= CONTACT ================= */}
       <motion.section
