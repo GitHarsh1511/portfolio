@@ -176,7 +176,7 @@ export default function HomePage() {
       "
                 >
                   <Image
-                    src="/profile.jpg"
+                    src="/img/profile.jpg"
                     alt="Harsh Chauhan"
                     fill
                     className="object-cover"
