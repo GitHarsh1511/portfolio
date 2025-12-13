@@ -22,18 +22,28 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Active section detection
+  // ✅ FIXED Active section detection (Contact included)
   useEffect(() => {
     const handleScroll = () => {
-      const scrollPosition = window.scrollY + 120; // navbar offset
+      const scrollPosition = window.scrollY + 120;
+      const pageHeight = document.documentElement.scrollHeight;
+      const windowHeight = window.innerHeight;
+
+      // ✅ If near bottom → activate Contact
+      if (window.scrollY + windowHeight >= pageHeight - 50) {
+        setActiveSection("contact");
+        return;
+      }
 
       for (const section of sections) {
         const element = document.getElementById(section.id);
         if (!element) continue;
 
+        const { offsetTop, offsetHeight } = element;
+
         if (
-          scrollPosition >= element.offsetTop &&
-          scrollPosition < element.offsetTop + element.offsetHeight
+          scrollPosition >= offsetTop &&
+          scrollPosition < offsetTop + offsetHeight
         ) {
           setActiveSection(section.id);
           break;
@@ -42,7 +52,7 @@ export default function Navbar() {
     };
 
     window.addEventListener("scroll", handleScroll);
-    handleScroll(); // run once on load
+    handleScroll();
 
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -84,7 +94,7 @@ export default function Navbar() {
               >
                 {section.label}
 
-                {/* Animated underline */}
+                {/* ✅ Animated underline */}
                 <span
                   className={`absolute left-0 -bottom-1 h-[2px] rounded-full bg-indigo-400 transition-all duration-300 ${
                     isActive ? "w-full opacity-100" : "w-0 opacity-0"
