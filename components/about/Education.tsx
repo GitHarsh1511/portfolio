@@ -7,8 +7,7 @@ const educationData = [
   {
     title: "Bachelor of Technology in Computer Engineering",
     institute: "A. D. Patel Institute of Technology | CVMU",
-    duration: "2021 – 2026",
-    status: "Pursuing",
+    duration: "Sep 2021 – May 2026",
     scoreLabel: "CGPA",
     scoreValue: "9.12",
     highlight: true,
@@ -83,7 +82,7 @@ export default function Education() {
               <p className="text-slate-400 mt-1">{edu.institute}</p>
 
               <p className="text-green-400 font-medium mt-3">
-                {edu.duration} | {edu.status}
+                {edu.duration}
               </p>
 
               <div className="flex items-center gap-2 mt-4 text-slate-300">
