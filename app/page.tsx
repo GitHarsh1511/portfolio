@@ -1,8 +1,10 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { projects } from "@/data/projects";
 
+/* ---------------- Animations ---------------- */
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
   visible: { opacity: 1, y: 0 },
@@ -27,22 +29,25 @@ export default function HomePage() {
 
   return (
     <div className="space-y-32">
-      {/* HERO SECTION (same as before) */}
+      {/* ================= HERO SECTION ================= */}
       <motion.section
         id="home"
-        className="grid gap-10 md:grid-cols-[1.4fr,1fr] items-center"
+        className="grid min-h-[calc(100vh-6rem)] gap-16 md:grid-cols-[1.3fr,1fr] items-center"
         variants={fadeUp}
         initial="hidden"
         animate="visible"
-        transition={{ duration: 0.7, ease: "easeOut" }}
+        transition={{ duration: 0.7 }}
       >
+        {/* LEFT CONTENT */}
         <div className="space-y-6">
           <motion.p
-            className="text-xs uppercase tracking-[0.3em] text-indigo-400"
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-          ></motion.p>
+            className="text-sm text-slate-300"
+          >
+            Heya, I am
+          </motion.p>
 
           <motion.h1
             className="text-4xl md:text-5xl font-bold leading-tight"
@@ -50,47 +55,79 @@ export default function HomePage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
           >
-            Hi, I&apos;m <span className="text-indigo-400">Harsh Chauhan</span>.{" "}
-            <br />I build clean, fast, and modern digital experiences.
+            Harsh <span className="text-indigo-400">Chauhan</span>
           </motion.h1>
 
-          <motion.p
-            className="text-slate-300 text-sm md:text-base max-w-xl"
+          <motion.h2
+            className="text-lg md:text-xl font-semibold text-slate-300"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            transition={{ delay: 0.2 }}
           >
-            I&apos;m a developer focused on building real-world projects with
-            Next.js, Flutter, and AI tools. I love turning ideas into working
-            products with clean code and thoughtful UI.
+            Computer Engineering Student
+          </motion.h2>
+
+          <motion.p
+            className="text-slate-400 text-sm md:text-base max-w-xl leading-relaxed"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+          >
+            4th-year Computer Engineering student passionate about technology and
+            innovation. I build modern web & mobile experiences and love turning
+            ideas into impactful products.
           </motion.p>
 
           <motion.div
-            className="flex flex-wrap gap-4"
+            className="flex flex-wrap gap-4 pt-2"
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
           >
             <a
               href="#projects"
-              className="px-4 py-2 rounded-full bg-indigo-500 hover:bg-indigo-400 text-slate-950 text-sm font-medium shadow"
+              className="px-6 py-2 rounded-full bg-indigo-500 hover:bg-indigo-400 text-slate-950 text-sm font-medium shadow transition"
             >
-              View projects
+              Explore More
             </a>
             <a
               href="#contact"
-              className="px-4 py-2 rounded-full border border-slate-700 text-slate-200 text-sm hover:border-indigo-400 hover:text-indigo-300"
+              className="px-6 py-2 rounded-full border border-slate-700 text-slate-200 text-sm hover:border-indigo-400 hover:text-indigo-300 transition"
             >
-              Contact me
+              Contact Me
             </a>
           </motion.div>
         </div>
+
+        {/* RIGHT IMAGE */}
+        <motion.div
+          className="relative flex justify-center"
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.7, delay: 0.2 }}
+        >
+          {/* Outer glow */}
+          <div className="absolute inset-0 flex items-center justify-center">
+            <div className="h-80 w-80 rounded-full bg-indigo-500/20 blur-3xl" />
+          </div>
+
+          {/* Gradient ring */}
+          <div className="relative">
+            <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-indigo-500 via-purple-500 to-pink-500 blur-md opacity-80" />
+            <div className="relative h-64 w-64 rounded-full border-4 border-slate-900 bg-slate-900 overflow-hidden">
+              <Image
+                src="/profile.jpg" // put image in /public
+                alt="Harsh Chauhan"
+                fill
+                className="object-cover"
+                priority
+              />
+            </div>
+          </div>
+        </motion.div>
       </motion.section>
 
-      {/* ABOUT SECTION (unchanged) */}
-      {/* ... keep your existing About and Contact code here exactly as before ... */}
-
-      {/* ABOUT SECTION */}
+      {/* ================= ABOUT SECTION ================= */}
       <motion.section
         id="about"
         className="space-y-4"
@@ -103,42 +140,17 @@ export default function HomePage() {
         <h2 className="text-2xl font-semibold">About</h2>
         <p className="text-sm text-slate-300 leading-relaxed">
           I&apos;m a computer engineering student with a strong interest in
-          mobile development (Flutter), modern web apps (Next.js), and AI/ML. I
-          enjoy building projects end-to-end – from planning and UI design to
+          mobile development (Flutter), modern web apps (Next.js), and AI/ML.
+          I enjoy building projects end-to-end – from planning and UI design to
           backend integration and deployment.
         </p>
         <p className="text-sm text-slate-300 leading-relaxed">
           During my internship, I worked on Flutter-based applications, focusing
-          on performance, smooth UI, and clean architecture. I&apos;m constantly
-          learning new tools and best practices to write maintainable, scalable
-          code.
+          on performance, smooth UI, and clean architecture.
         </p>
-
-        <div className="grid gap-4 md:grid-cols-2 pt-2 text-sm">
-          <div className="space-y-2">
-            <h3 className="text-sm font-semibold text-slate-200">Skills</h3>
-            <ul className="text-slate-300 text-xs space-y-1">
-              <li>Languages: Dart, Python, JavaScript, Java</li>
-              <li>Frameworks: Flutter, Next.js, React</li>
-              <li>Tools: Git, VS Code, Android Studio, Firebase</li>
-              <li>Concepts: OOP, REST APIs, basic AI/ML</li>
-            </ul>
-          </div>
-          <div className="space-y-2">
-            <h3 className="text-sm font-semibold text-slate-200">
-              Soft Skills
-            </h3>
-            <ul className="text-slate-300 text-xs space-y-1">
-              <li>Strong communication & teamwork</li>
-              <li>Problem solving & debugging mindset</li>
-              <li>Time management & ownership of tasks</li>
-              <li>Curiosity and willingness to learn</li>
-            </ul>
-          </div>
-        </div>
       </motion.section>
 
-      {/* PROJECTS SECTION (uses shared data) */}
+      {/* ================= PROJECTS SECTION ================= */}
       <motion.section
         id="projects"
         className="space-y-6"
@@ -147,10 +159,7 @@ export default function HomePage() {
         whileInView="visible"
         viewport={{ once: true, amount: 0.25 }}
       >
-        <motion.div
-          variants={fadeUp}
-          className="flex items-end justify-between gap-4"
-        >
+        <motion.div variants={fadeUp} className="flex items-end justify-between">
           <div>
             <h2 className="text-2xl font-semibold">Projects</h2>
             <p className="text-slate-400 text-sm">
@@ -159,7 +168,7 @@ export default function HomePage() {
           </div>
           <a
             href="/projects"
-            className="text-xs text-indigo-400 hover:text-indigo-300 underline-offset-4 hover:underline"
+            className="text-xs text-indigo-400 hover:underline"
           >
             View all projects →
           </a>
@@ -179,26 +188,12 @@ export default function HomePage() {
               <h3 className="font-semibold">{project.title}</h3>
               <p className="text-xs text-slate-400">{project.tech}</p>
               <p className="text-sm text-slate-300">{project.description}</p>
-              <ul className="text-xs text-slate-400 list-disc list-inside space-y-1">
-                {project.bullets.map((bullet) => (
-                  <li key={bullet}>{bullet}</li>
-                ))}
-              </ul>
-              {project.links?.github && (
-                <a
-                  href={project.links.github}
-                  target="_blank"
-                  className="inline-block text-xs text-indigo-400 hover:underline mt-2"
-                >
-                  View code on GitHub
-                </a>
-              )}
             </motion.article>
           ))}
         </div>
       </motion.section>
 
-      {/* CONTACT SECTION */}
+      {/* ================= CONTACT SECTION ================= */}
       <motion.section
         id="contact"
         className="space-y-4"
@@ -210,41 +205,18 @@ export default function HomePage() {
       >
         <h2 className="text-2xl font-semibold">Contact</h2>
         <p className="text-sm text-slate-300">
-          I&apos;m open to internships, freelance work, and interesting
-          collaborations. Feel free to reach out:
+          Feel free to reach out for internships, freelance work, or
+          collaborations.
         </p>
-
-        <div className="space-y-2 text-sm">
-          <p>
-            Email:{" "}
-            <a
-              href="mailto:youremail@example.com"
-              className="text-indigo-400 hover:underline"
-            >
-              workwitharsh@gmail.com
-            </a>
-          </p>
-          <p>
-            GitHub:{" "}
-            <a
-              href="https://github.com/GitHarsh1511"
-              target="_blank"
-              className="text-indigo-400 hover:underline"
-            >
-              https://github.com/GitHarsh1511
-            </a>
-          </p>
-          <p>
-            LinkedIn:{" "}
-            <a
-              href="https://linkedin.com/in/harshchauhan115"
-              target="_blank"
-              className="text-indigo-400 hover:underline"
-            >
-              www.linkedin.com/in/harshchauhan115
-            </a>
-          </p>
-        </div>
+        <p className="text-sm">
+          Email:{" "}
+          <a
+            href="mailto:workwitharsh@gmail.com"
+            className="text-indigo-400 hover:underline"
+          >
+            workwitharsh@gmail.com
+          </a>
+        </p>
       </motion.section>
     </div>
   );
