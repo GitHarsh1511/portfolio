@@ -26,9 +26,10 @@ export default function HomePage() {
   const featuredProjects = projects.slice(0, 3);
 
   return (
-    <div id="home" className="space-y-32">
+    <div className="space-y-32">
       {/* HERO SECTION (same as before) */}
       <motion.section
+        id="home"
         className="grid gap-10 md:grid-cols-[1.4fr,1fr] items-center"
         variants={fadeUp}
         initial="hidden"
@@ -41,9 +42,7 @@ export default function HomePage() {
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-          >
-            Computer Engineering · Web · Mobile
-          </motion.p>
+          ></motion.p>
 
           <motion.h1
             className="text-4xl md:text-5xl font-bold leading-tight"
@@ -52,8 +51,7 @@ export default function HomePage() {
             transition={{ duration: 0.6, delay: 0.1 }}
           >
             Hi, I&apos;m <span className="text-indigo-400">Harsh Chauhan</span>.{" "}
-            <br />
-            I build clean, fast, and modern digital experiences.
+            <br />I build clean, fast, and modern digital experiences.
           </motion.h1>
 
           <motion.p
@@ -86,55 +84,58 @@ export default function HomePage() {
               Contact me
             </a>
           </motion.div>
-
-          <motion.div
-            className="flex flex-wrap gap-2 pt-4 text-xs text-slate-400"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-          >
-            <span className="px-2 py-1 rounded-full bg-slate-900 border border-slate-700">
-              Next.js
-            </span>
-            <span className="px-2 py-1 rounded-full bg-slate-900 border border-slate-700">
-              Flutter
-            </span>
-            <span className="px-2 py-1 rounded-full bg-slate-900 border border-slate-700">
-              AI / ML
-            </span>
-            <span className="px-2 py-1 rounded-full bg-slate-900 border border-slate-700">
-              Clean UI
-            </span>
-          </motion.div>
         </div>
+      </motion.section>
 
-        {/* Right gradient card */}
-        <motion.div
-          className="relative h-64 md:h-80"
-          initial={{ opacity: 0, scale: 0.9, y: 20 }}
-          animate={{ opacity: 1, scale: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-        >
-          <motion.div
-            className="absolute inset-0 rounded-3xl bg-linear-to-tr from-indigo-500 via-purple-500 to-pink-500 opacity-80 blur-2xl"
-            animate={{ opacity: [0.7, 1, 0.7] }}
-            transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-          />
-          <motion.div
-            className="relative h-full rounded-3xl bg-slate-900 border border-slate-700/70 flex flex-col items-center justify-center gap-3 shadow-xl"
-            animate={{ y: [0, -6, 0] }}
-            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-          >
-            <div className="text-xs uppercase tracking-[0.2em] text-slate-400">
-              Portfolio
-            </div>
-            <div className="text-lg font-semibold">Developer</div>
-            <div className="text-xs text-slate-400 px-6 text-center">
-              Open to internships, freelance opportunities, and exciting
-              collaborations.
-            </div>
-          </motion.div>
-        </motion.div>
+      {/* ABOUT SECTION (unchanged) */}
+      {/* ... keep your existing About and Contact code here exactly as before ... */}
+
+      {/* ABOUT SECTION */}
+      <motion.section
+        id="about"
+        className="space-y-4"
+        variants={fadeUp}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{ duration: 0.6 }}
+      >
+        <h2 className="text-2xl font-semibold">About</h2>
+        <p className="text-sm text-slate-300 leading-relaxed">
+          I&apos;m a computer engineering student with a strong interest in
+          mobile development (Flutter), modern web apps (Next.js), and AI/ML. I
+          enjoy building projects end-to-end – from planning and UI design to
+          backend integration and deployment.
+        </p>
+        <p className="text-sm text-slate-300 leading-relaxed">
+          During my internship, I worked on Flutter-based applications, focusing
+          on performance, smooth UI, and clean architecture. I&apos;m constantly
+          learning new tools and best practices to write maintainable, scalable
+          code.
+        </p>
+
+        <div className="grid gap-4 md:grid-cols-2 pt-2 text-sm">
+          <div className="space-y-2">
+            <h3 className="text-sm font-semibold text-slate-200">Skills</h3>
+            <ul className="text-slate-300 text-xs space-y-1">
+              <li>Languages: Dart, Python, JavaScript, Java</li>
+              <li>Frameworks: Flutter, Next.js, React</li>
+              <li>Tools: Git, VS Code, Android Studio, Firebase</li>
+              <li>Concepts: OOP, REST APIs, basic AI/ML</li>
+            </ul>
+          </div>
+          <div className="space-y-2">
+            <h3 className="text-sm font-semibold text-slate-200">
+              Soft Skills
+            </h3>
+            <ul className="text-slate-300 text-xs space-y-1">
+              <li>Strong communication & teamwork</li>
+              <li>Problem solving & debugging mindset</li>
+              <li>Time management & ownership of tasks</li>
+              <li>Curiosity and willingness to learn</li>
+            </ul>
+          </div>
+        </div>
       </motion.section>
 
       {/* PROJECTS SECTION (uses shared data) */}
@@ -197,55 +198,6 @@ export default function HomePage() {
         </div>
       </motion.section>
 
-      {/* ABOUT SECTION (unchanged) */}
-      {/* ... keep your existing About and Contact code here exactly as before ... */}
-
-      {/* ABOUT SECTION */}
-      <motion.section
-        id="about"
-        className="space-y-4"
-        variants={fadeUp}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.3 }}
-        transition={{ duration: 0.6 }}
-      >
-        <h2 className="text-2xl font-semibold">About</h2>
-        <p className="text-sm text-slate-300 leading-relaxed">
-          I&apos;m a computer engineering student with a strong interest in
-          mobile development (Flutter), modern web apps (Next.js), and AI/ML.
-          I enjoy building projects end-to-end – from planning and UI design to
-          backend integration and deployment.
-        </p>
-        <p className="text-sm text-slate-300 leading-relaxed">
-          During my internship, I worked on Flutter-based applications, focusing
-          on performance, smooth UI, and clean architecture. I&apos;m constantly
-          learning new tools and best practices to write maintainable, scalable
-          code.
-        </p>
-
-        <div className="grid gap-4 md:grid-cols-2 pt-2 text-sm">
-          <div className="space-y-2">
-            <h3 className="text-sm font-semibold text-slate-200">Skills</h3>
-            <ul className="text-slate-300 text-xs space-y-1">
-              <li>Languages: Dart, Python, JavaScript, Java</li>
-              <li>Frameworks: Flutter, Next.js, React</li>
-              <li>Tools: Git, VS Code, Android Studio, Firebase</li>
-              <li>Concepts: OOP, REST APIs, basic AI/ML</li>
-            </ul>
-          </div>
-          <div className="space-y-2">
-            <h3 className="text-sm font-semibold text-slate-200">Soft Skills</h3>
-            <ul className="text-slate-300 text-xs space-y-1">
-              <li>Strong communication & teamwork</li>
-              <li>Problem solving & debugging mindset</li>
-              <li>Time management & ownership of tasks</li>
-              <li>Curiosity and willingness to learn</li>
-            </ul>
-          </div>
-        </div>
-      </motion.section>
-
       {/* CONTACT SECTION */}
       <motion.section
         id="contact"
@@ -293,7 +245,6 @@ export default function HomePage() {
             </a>
           </p>
         </div>
-        
       </motion.section>
     </div>
   );
