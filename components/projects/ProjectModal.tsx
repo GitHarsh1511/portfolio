@@ -67,7 +67,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
             <div className="relative">
               <button
                 onClick={onClose}
-                className="absolute top-4 right-4 z-20 text-slate-400 hover:text-white"
+                className="absolute top-4 right-4 z-20 text-green-400 hover:text-red"
               >
                 <X size={22} />
               </button>
@@ -97,7 +97,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                 {project.tech.map((tech) => (
                   <span
                     key={tech}
-                    className="text-xs px-3 py-1 rounded-full bg-slate-800 text-slate-300"
+                    className="text-xs px-3 py-1 rounded-full bg-slate-800 text-white-500"
                   >
                     {tech}
                   </span>
@@ -110,7 +110,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                   href={project.live}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-cyan-400 hover:underline"
+                  className="flex items-center gap-2 text-green-400 hover:underline"
                 >
                   <ExternalLink size={18} />
                   Live Demo

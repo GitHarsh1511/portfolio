@@ -50,14 +50,14 @@ export default function HomePage() {
               className="space-y-5"
             >
               {/* Small Intro */}
-              <p className="text-lg md:text-xl font-semibold text-slate-300 leading-tight">
+              <p className="text-lg md:text-xl font-semibold text-white-400 leading-tight">
                 Heya, I’m
               </p>
 
               {/* Name */}
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight text-white">
                 Harsh{" "}
-                <span className="bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+                <span className="bg-linear-to-r from-green-300 via-green-400 to-green-500 bg-clip-text text-transparent">
                   Chauhan
                 </span>
               </h1>
@@ -76,10 +76,10 @@ export default function HomePage() {
                 repeat={Infinity}
                 wrapper="h2"
                 className="
-    text-lg md:text-xl font-semibold
-    bg-gradient-to-r from-cyan-400 via-sky-400 to-blue-500
-    bg-clip-text text-transparent
-  "
+  text-lg md:text-xl font-semibold
+  bg-linear-to-r from-emerald-500 via-green-600 to-emerald-700
+  bg-clip-text text-transparent
+"
               />
 
               {/* Description */}
@@ -99,10 +99,10 @@ export default function HomePage() {
                   className="
       inline-flex items-center gap-2
       px-6 py-3 rounded-2xl
-      bg-indigo-500
+      bg-green-500
       text-slate-950 font-semibold
       shadow-[0_10px_30px_rgba(99,102,241,0.4)]
-      hover:bg-indigo-400
+      hover:bg-white-400
       transition
     "
                 >
@@ -118,11 +118,11 @@ export default function HomePage() {
                   className="
       inline-flex items-center gap-2
       px-6 py-3 rounded-2xl
-      border border-indigo-400/40
-      bg-indigo-500/10
-      text-indigo-300 font-semibold
+      border border-green-400/40
+      bg-green-500/10
+      text-green-400 font-semibold
       shadow-[0_0_30px_rgba(99,102,241,0.35)]
-      hover:bg-indigo-500/20
+      hover:bg-green-500/20
       transition
     "
                 >
@@ -140,9 +140,9 @@ export default function HomePage() {
                   className="
         p-3 rounded-full
         border border-slate-700
-        text-slate-400
-        hover:text-white hover:border-indigo-400
-        hover:shadow-md hover:shadow-indigo-500/30
+        text-white-400
+        hover:text-white hover:border-green-400
+        hover:shadow-md hover:shadow-green-500/30
         transition
       "
                 >
@@ -156,8 +156,8 @@ export default function HomePage() {
                   className="
         p-3 rounded-full
         border border-slate-700
-        text-slate-400
-        hover:text-white hover:border-indigo-400
+        text-white-400
+        hover:text-white hover:border-green-400
         hover:shadow-md hover:shadow-indigo-500/30
         transition
       "
@@ -171,8 +171,8 @@ export default function HomePage() {
                   className="
         p-3 rounded-full
         border border-slate-700
-        text-slate-400
-        hover:text-white hover:border-indigo-400
+        text-white-400
+        hover:text-white hover:border-green-400
         hover:shadow-md hover:shadow-indigo-500/30
         transition
       "
@@ -197,7 +197,7 @@ export default function HomePage() {
                     repeat: Infinity,
                     ease: "linear",
                   }}
-                  className="absolute inset-0 rounded-full bg-gradient-to-tr from-indigo-500 via-purple-500 to-pink-500 blur-sm opacity-60"
+                  className="absolute inset-0 rounded-full bg-linear-to-tr from-emerald-500 via-green-500 to-emerald-600 blur-sm opacity-90"
                 />
 
                 {/* Soft inner glow */}
@@ -240,7 +240,7 @@ export default function HomePage() {
               viewport={{ once: true }}
               className="text-3xl md:text-4xl font-bold text-white mb-16 text-center"
             >
-              Education & <span className="text-indigo-400">Experience</span>
+              Education & <span className="text-green-400">Experience</span>
             </motion.h2>
 
             {/* Side-by-side cards */}

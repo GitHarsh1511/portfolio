@@ -17,7 +17,7 @@ export default function Contact() {
         viewport={{ once: true }}
         className="text-4xl md:text-5xl font-bold text-white mb-6"
       >
-        Get In <span className="text-cyan-400">Touch</span>
+        Get In <span className="text-green-400">Touch</span>
       </motion.h2>
 
       {/* Description */}
@@ -26,7 +26,7 @@ export default function Contact() {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.2, duration: 0.6 }}
         viewport={{ once: true }}
-        className="text-slate-400 max-w-2xl mx-auto mb-12"
+        className="text-white-400 max-w-2xl mx-auto mb-12"
       >
         I’m always open to discussing new projects, opportunities, or
         collaborations. Feel free to reach out — I’d love to connect!
@@ -53,11 +53,11 @@ export default function Contact() {
             transition-all
             duration-300
             hover:-translate-y-1
-            hover:border-cyan-400/60
+            hover:border-green-400/60
           "
         >
-          <Mail className="w-7 h-7 text-cyan-400" />
-          <span className="text-slate-200 font-medium">Email</span>
+          <Mail className="w-7 h-7 text-green-400" />
+          <span className="text-white-200 font-medium">Email</span>
           <span className="text-sm text-slate-400">
             workwitharsh@gmail.com
           </span>
@@ -83,11 +83,11 @@ export default function Contact() {
             transition-all
             duration-300
             hover:-translate-y-1
-            hover:border-cyan-400/60
+            hover:border-green-400/60
           "
         >
-          <Github className="w-7 h-7 text-cyan-400" />
-          <span className="text-slate-200 font-medium">GitHub</span>
+          <Github className="w-7 h-7 text-green-400" />
+          <span className="text-white-200 font-medium">GitHub</span>
           <span className="text-sm text-slate-400">
             Follow on GitHub
           </span>
@@ -113,11 +113,11 @@ export default function Contact() {
             transition-all
             duration-300
             hover:-translate-y-1
-            hover:border-cyan-400/60
+            hover:border-green-400/60
           "
         >
-          <Linkedin className="w-7 h-7 text-cyan-400" />
-          <span className="text-slate-200 font-medium">LinkedIn</span>
+          <Linkedin className="w-7 h-7 text-green-400" />
+          <span className="text-white-200 font-medium">LinkedIn</span>
           <span className="text-sm text-slate-400">
             Connect on LinkedIn
           </span>

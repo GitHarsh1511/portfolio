@@ -20,10 +20,10 @@ export default function AboutSection() {
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            About <span className="text-indigo-400">Me</span>
+            About <span className="text-green-400">Me</span>
           </h2>
 
-          <p className="max-w-2xl mx-auto text-slate-400 text-sm md:text-base leading-relaxed">
+          <p className="max-w-2xl mx-auto text-white-400 text-sm md:text-base leading-relaxed">
             A brief overview of my background, interests, and academic journey.
           </p>
         </motion.div>
@@ -42,20 +42,26 @@ export default function AboutSection() {
               rounded-2xl
               p-6 sm:p-8
               backdrop-blur
+              shadow-lg
+                transition-all
+                duration-300
+                hover:-translate-y-1
+                hover:border-green-400/60
+                hover:shadow-green-500/10
             "
           >
             <h3 className="text-lg font-semibold text-white mb-3 text-center">
               Computer Engineering Student
             </h3>
 
-            <p className="text-slate-300 text-sm md:text-base leading-relaxed">
+            <p className="text-slate-400 text-sm md:text-base leading-relaxed">
               I am a proactive and detail-oriented Computer Engineering student
               with a strong interest in Artificial Intelligence and Machine
               Learning. I enjoy working on AI-driven solutions, focusing on data
               analysis, model development, and problem-solving using Python.
             </p>
 
-            <p className="text-slate-300 text-sm md:text-base leading-relaxed mt-4">
+            <p className="text-slate-400 text-sm md:text-base leading-relaxed mt-4">
               I bring a strong analytical mindset along with the ability to
               collaborate effectively in team environments. I am highly motivated
               to continuously learn, adapt, and explore innovative technologies
@@ -75,6 +81,12 @@ export default function AboutSection() {
               rounded-2xl
               p-6 sm:p-8
               backdrop-blur
+              shadow-lg
+                transition-all
+                duration-300
+                hover:-translate-y-1
+                hover:border-green-400/60
+                hover:shadow-green-500/10
             "
           >
             <h3 className="text-lg font-semibold text-white mb-3 text-center">

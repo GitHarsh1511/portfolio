@@ -80,18 +80,27 @@ export default function Navbar() {
           {/* Logo */}
           <a
             href={isHome ? "#home" : "/#home"}
-            className="group flex items-center gap-4 shrink-0"
+            className="
+    group flex items-center gap-4 shrink-0
+    transition-all duration-300
+    hover:-translate-y-0.5
+  "
           >
-            <Image
-              src="/logow.png"
-              alt="Harsh Chauhan Logo"
-              width={44}
-              height={44}
-              priority
-            />
-            <span className="text-xl sm:text-2xl font-semibold text-slate-100">
+            {/* Logo Image */}
+            <div className="transition-transform duration-300 group-hover:scale-105">
+              <Image
+                src="/logow.png"
+                alt="Harsh Chauhan Logo"
+                width={44}
+                height={44}
+                priority
+              />
+            </div>
+
+            {/* Name */}
+            <span className="text-xl sm:text-2xl font-semibold transition-colors duration-300 text-white-400 group-hover:text-white">
               Harsh
-              <span className="ml-1 text-indigo-400">Chauhan</span>
+              <span className="ml-1 text-green-400">Chauhan</span>
             </span>
           </a>
 
@@ -106,13 +115,13 @@ export default function Navbar() {
                   href={isHome ? `#${section.id}` : `/#${section.id}`}
                   className={`group relative px-2 py-1 ${
                     isActive
-                      ? "text-indigo-300 font-semibold"
-                      : "text-slate-300 hover:text-indigo-300"
+                      ? "text-white-400 font-semibold"
+                      : "text-white-400 hover:text-green-400"
                   }`}
                 >
                   {section.label}
                   <span
-                    className={`absolute left-0 -bottom-1 h-[2px] w-full bg-indigo-400 transition-transform duration-300 ${
+                    className={`absolute left-0 -bottom-1 h-[2px] w-full bg-green-400 transition-transform duration-300 ${
                       isActive
                         ? "scale-x-100"
                         : "scale-x-0 group-hover:scale-x-100"
@@ -125,10 +134,10 @@ export default function Navbar() {
             <a
               href="/resume/Harsh_Chauhan_Resume.pdf"
               download="Harsh_Chauhan_Resume.pdf"
-              className="group relative px-2 py-1 text-slate-300 hover:text-indigo-300"
+              className="group relative px-2 py-1 text-white-400 hover:text-green-400"
             >
               Resume
-              <span className="absolute left-0 -bottom-1 h-[2px] w-full bg-indigo-400 scale-x-0 group-hover:scale-x-100 transition-transform" />
+              <span className="absolute left-0 -bottom-1 h-[2px] w-full bg-green-400 scale-x-0 group-hover:scale-x-100 transition-transform" />
             </a>
           </div>
 
@@ -174,15 +183,15 @@ export default function Navbar() {
                     height={40}
                     priority
                   />
-                  <span className="text-lg font-semibold text-slate-100">
+                  <span className="text-lg font-semibold text-white-400">
                     Harsh
-                    <span className="ml-1 text-indigo-400">Chauhan</span>
+                    <span className="ml-1 text-green-400">Chauhan</span>
                   </span>
                 </div>
 
                 <button
                   onClick={() => setMobileOpen(false)}
-                  className="text-slate-200"
+                  className="text-white-400"
                   aria-label="Close menu"
                 >
                   <X size={26} />
@@ -213,13 +222,13 @@ export default function Navbar() {
                       }}
                       className={`relative inline-block text-center font-medium ${
                         isActive
-                          ? "text-indigo-300"
-                          : "text-slate-300 hover:text-indigo-300"
+                          ? "text-green-400"
+                          : "text-white-400 hover:text-green-400"
                       }`}
                     >
                       {section.label}
                       <span
-                        className={`absolute left-0 -bottom-1 h-[2px] w-full bg-indigo-400 transition-transform duration-300 ${
+                        className={`absolute left-0 -bottom-1 h-[2px] w-full bg-green-400 transition-transform duration-300 ${
                           isActive ? "scale-x-100" : "scale-x-0"
                         }`}
                       />
@@ -235,15 +244,16 @@ export default function Navbar() {
                     hidden: { opacity: 0, y: 20 },
                     show: { opacity: 1, y: 0 },
                   }}
-                  className="inline-block text-center font-medium text-slate-300 hover:text-indigo-300"
+                  className="inline-block text-center font-medium text-white-400 hover:text-green-400"
                 >
                   Resume
                 </motion.a>
               </motion.div>
 
               {/* Copyright */}
-              <div className="pt-8 text-center text-xs text-slate-500">
-                © {new Date().getFullYear()} Harsh Chauhan | All rights reserved.
+              <div className="pt-8 text-center text-xs text-green-300">
+                © {new Date().getFullYear()} Harsh Chauhan | All rights
+                reserved.
               </div>
             </motion.aside>
           </>

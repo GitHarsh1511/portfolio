@@ -75,7 +75,7 @@ export default function Projects() {
         viewport={{ once: true }}
         className="text-4xl md:text-5xl font-bold text-center mb-16"
       >
-        My <span className="text-cyan-400">Projects</span>
+        My <span className="text-green-400">Projects</span>
       </motion.h2>
 
       <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
@@ -87,7 +87,7 @@ export default function Projects() {
             transition={{ duration: 0.5, delay: index * 0.1 }}
             viewport={{ once: true }}
             onClick={() => setSelectedProject(project)}
-            className="group cursor-pointer bg-slate-900/70 border border-slate-800 rounded-2xl overflow-hidden shadow-lg transition-all duration-300 hover:-translate-y-1 hover:border-cyan-400/60"
+            className="group cursor-pointer bg-slate-900/70 border border-slate-800 rounded-2xl overflow-hidden shadow-lg transition-all duration-300 hover:-translate-y-1 hover:border-green-400/60"
           >
             <div className="relative h-48 w-full overflow-hidden">
               <Image

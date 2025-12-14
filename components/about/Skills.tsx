@@ -40,7 +40,7 @@ export default function Skills() {
           viewport={{ once: true }}
           className="text-3xl md:text-4xl font-bold text-center text-white mb-16"
         >
-          Skills & <span className="text-cyan-400">Abilities</span>
+          Skills & <span className="text-green-400">Abilities</span>
         </motion.h3>
 
         {/* Skills Grid */}
@@ -67,8 +67,8 @@ export default function Skills() {
                 transition-all
                 duration-300
                 hover:-translate-y-1
-                hover:border-cyan-400/60
-                hover:shadow-cyan-500/10
+                hover:border-green-400/60
+                hover:shadow-green-500/10
               "
             >
               {/* Skill Logo */}

@@ -36,13 +36,13 @@ export default function BackToTop() {
         bg-slate-900/80
         border
         border-slate-700
-        text-cyan-400
+        text-green-400
         shadow-lg
         backdrop-blur
         transition-all
         duration-300
         hover:-translate-y-1
-        hover:border-cyan-400
+        hover:border-green-400
         hover:shadow-cyan-500/20
         ${visible ? "opacity-100 scale-100" : "opacity-0 scale-90 pointer-events-none"}
       `}

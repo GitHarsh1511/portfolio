@@ -30,11 +30,27 @@ const educationData = [
 
 export default function Education() {
   return (
-    <div className="rounded-2xl bg-slate-900/70 border border-slate-800 p-6 sm:p-8">
+    <motion.div
+  initial={{ opacity: 0, y: 30 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.6 }}
+  viewport={{ once: true }}
+  className="
+    rounded-2xl
+    bg-slate-900/70
+    border border-slate-800
+    p-6 sm:p-8
+    transition-all
+    duration-300
+    hover:-translate-y-1
+    hover:border-green-400/60
+  "
+>
+
       {/* Section Heading */}
       <div className="flex items-center gap-3 mb-10">
-        <GraduationCap className="w-6 h-6 text-cyan-400" />
-        <h4 className="text-2xl font-semibold text-cyan-400">Education</h4>
+        <GraduationCap className="w-6 h-6 text-white-400" />
+        <h4 className="text-2xl font-semibold text-white-400">Education</h4>
       </div>
 
       {/* Timeline */}
@@ -53,7 +69,7 @@ export default function Education() {
           >
             {/* Dot column */}
             <div className="relative w-8 flex justify-center items-center">
-              <span className="w-3 h-3 bg-cyan-400 rounded-full" />
+              <span className="w-3 h-3 bg-green-400 rounded-full" />
             </div>
 
             {/* Card */}
@@ -69,8 +85,8 @@ export default function Education() {
                 duration-300
                 hover:-translate-y-1
                 hover:shadow-xl
-                hover:border-cyan-400/60
-                ${edu.highlight ? "ring-1 ring-cyan-400/30" : ""}
+                hover:border-green-400/60
+                ${edu.highlight ? "ring-1 ring-slate-400/30" : ""}
               `}
             >
               <h5 className="text-lg sm:text-xl font-semibold text-white">
@@ -92,6 +108,6 @@ export default function Education() {
           </motion.div>
         ))}
       </div>
-    </div>
+    </motion.div>
   );
 }
