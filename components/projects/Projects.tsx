@@ -48,15 +48,15 @@ const projects: Project[] = [
   },
 
   {
-    title: "Portfolio Website",
+    title: "TimeTable Management System",
     shortDescription:
-      "A personal developer portfolio showcasing projects, skills, and experience.",
+      "A web-based timetable management system that streamlines scheduling, attendance tracking, and role-based access for educational institutions.",
     fullDescription:
-      "This portfolio website is built to showcase my projects, skills, and professional journey.\n\nIt focuses on clean design, smooth animations, and modern UI practices.",
-    image: "/projects/portfolio.png",
-    tech: ["Next.js", "Tailwind CSS", "Framer Motion"],
-    live: "https://example.com",
-    github: "https://github.com",
+      "TimeTable Management System is a comprehensive web-based application designed to automate and manage academic scheduling and attendance processes efficiently.\n\nThe system is built using JSP, Servlets, Apache Tomcat, and MySQL, providing a robust backend architecture for handling real-time data operations. It supports three primary user roles: Admin, Faculty, and Students, each with specific access controls and responsibilities.\n\nAdmins can manage classrooms, subjects, faculty assignments, and generate conflict-free timetables. Faculty members can view assigned schedules and mark attendance in real time, while students can access their daily schedules and attendance records.\n\nThe application focuses on preventing scheduling conflicts, maintaining data consistency, and ensuring smooth coordination between users. Role-based authentication and access control enhance security and usability, making the system suitable for real-world institutional environments.",
+    image: "/projects/tt.png",
+    tech: ["Java", "JSP", "Servlets", "MySQL", "Apache Tomcat", "HTML", "CSS"],
+    live: "https://www.youtube.com/watch?v=v5E9qqzp1X8",
+    github: "https://github.com/GitHarsh1511/TimeTable-Mainagement-System",
   },
 ];
 
