@@ -2,6 +2,9 @@
 
 import { useEffect, useState } from "react";
 import AboutSection from "@/components/about/AboutSection";
+import Education from "@/components/about/Education";
+import Experience from "@/components/about/Experience";
+import Skills from "@/components/about/Skills";
 import Projects from "@/components/projects/Projects";
 import Image from "next/image";
 import { motion } from "framer-motion";
@@ -223,7 +226,35 @@ export default function HomePage() {
 
       {/* ================= MAIN ================= */}
       <main>
+        {/* About */}
         <AboutSection />
+
+        {/* ================= EDUCATION + EXPERIENCE ================= */}
+        <section id="education" className="relative z-10 w-full py-28 md:py-36">
+          <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+            {/* Section Heading */}
+            <motion.h2
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className="text-3xl md:text-4xl font-bold text-white mb-16 text-center"
+            >
+              Education & <span className="text-indigo-400">Experience</span>
+            </motion.h2>
+
+            {/* Side-by-side cards */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+              <Education />
+              <Experience />
+            </div>
+          </div>
+        </section>
+
+        {/* ================= SKILLS ================= */}
+        <Skills />
+
+        {/* ================= REST ================= */}
         <Projects />
         <Contact />
         <Footer />
