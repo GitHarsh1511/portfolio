@@ -25,19 +25,28 @@ const projects: Project[] = [
     image: "/projects/cleansphere.png",
     tech: ["React", "Node.js", "MySQL", "Clerk", "Firebase", "Google Maps API"],
     live: "https://www.linkedin.com/posts/harsh-jingar19_cleansphere-smartcity-reactnative-ugcPost-7330876698424430593-ulIu",
-    github: "https://github.com/GitHarsh1511/CleanSphere---Urban-Cleanliness-Tracker",
+    github:
+      "https://github.com/GitHarsh1511/CleanSphere---Urban-Cleanliness-Tracker",
   },
   {
-    title: "Voyager App",
+    title: "AI News Summarizer with Sentiment Analysis",
     shortDescription:
-      "A modern travel companion app offering personalized recommendations with smooth animations.",
+      "An AI-powered application that summarizes news articles and analyzes their sentiment to help users quickly understand key information and emotional tone.",
     fullDescription:
-      "Voyager is a travel companion application focused on delivering a seamless and visually appealing user experience.\n\nIt helps users explore destinations, manage preferences, and enjoy smooth UI interactions through well-crafted animations.",
-    image: "/projects/voyager.png",
-    tech: ["Flutter", "SharedPreferences"],
-    live: "https://example.com",
-    github: "https://github.com",
+      "AI News Summarizer with Sentiment Analysis is an intelligent application designed to help users consume news efficiently by extracting meaningful insights from lengthy articles.\n\nThe system uses Natural Language Processing (NLP) techniques to generate concise summaries of news content while simultaneously analyzing the sentiment behind the text, categorizing it as positive, negative, or neutral.\n\nBy combining automatic summarization with sentiment analysis, the platform enables users to quickly understand both the key points and the emotional context of news articles. This makes it especially useful for staying informed without information overload.\n\nThe project demonstrates practical applications of machine learning, text processing, and AI-driven decision support systems in real-world scenarios.",
+    image: "/projects/aisum.png",
+    tech: [
+      "Python",
+      "Natural Language Processing (NLP)",
+      "Machine Learning",
+      "NLTK / spaCy",
+      "Transformers",
+      "Flask / FastAPI",
+    ],
+    live: "https://github.com/GitHarsh1511/AI-News-Summarizer",
+    github: "https://github.com/GitHarsh1511/AI-News-Summarizer",
   },
+
   {
     title: "Portfolio Website",
     shortDescription:
