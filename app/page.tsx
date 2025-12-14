@@ -1,4 +1,6 @@
 "use client";
+
+import { useEffect, useState } from "react";
 import AboutSection from "@/components/about/AboutSection";
 import Projects from "@/components/projects/Projects";
 import Image from "next/image";
@@ -9,29 +11,21 @@ import { projects } from "@/data/projects";
 import Contact from "@/components/contact/Contact";
 import Footer from "@/components/footer/Footer";
 
-/* ---------------- Animations ---------------- */
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 24 },
-  visible: { opacity: 1, y: 0 },
-};
-
-const staggerContainer = {
-  hidden: {},
-  visible: {
-    transition: { staggerChildren: 0.12 },
-  },
-};
-
-const cardVariant = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0 },
-};
-
 /* ================= PAGE ================= */
 
 export default function HomePage() {
   const featuredProjects = projects.slice(0, 3);
+
+  /* 🔄 Profile Image Switch */
+  const images = ["/img/profile.jpg", "/img/profile1.jpg"];
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIndex((prev) => (prev === 0 ? 1 : 0));
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <div className="space-y-24 md:space-y-32">
@@ -118,13 +112,14 @@ export default function HomePage() {
               </div>
             </motion.div>
 
-            {/* RIGHT IMAGE */}
+            {/* RIGHT IMAGE (AUTO SWITCH) */}
             <motion.div
               animate={{ y: [0, -14, 0] }}
               transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
               className="relative flex justify-center md:justify-end"
             >
               <div className="group relative flex h-80 w-80 items-center justify-center">
+                {/* Rotating glow */}
                 <motion.div
                   animate={{ rotate: 360 }}
                   transition={{
@@ -137,15 +132,20 @@ export default function HomePage() {
 
                 <div className="absolute inset-10 rounded-full bg-indigo-500/15 blur-xl" />
 
+                {/* Profile Images */}
                 <div className="relative z-10 h-64 w-64 overflow-hidden rounded-full border-4 border-slate-900 bg-slate-900 transition-transform duration-500 group-hover:scale-110">
-                  <Image
-                    src="/img/profile.jpg"
-                    alt="Harsh Chauhan"
-                    width={256}
-                    height={256}
-                    className="rounded-full object-cover"
-                    priority
-                  />
+                  {images.map((src, i) => (
+                    <Image
+                      key={src}
+                      src={src}
+                      alt="Harsh Chauhan"
+                      fill
+                      priority={i === 0}
+                      className={`absolute inset-0 object-cover rounded-full transition-opacity duration-700 ${
+                        index === i ? "opacity-100" : "opacity-0"
+                      }`}
+                    />
+                  ))}
                 </div>
               </div>
             </motion.div>
@@ -153,7 +153,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ================= ABOUT ================= */}
+      {/* ================= MAIN ================= */}
       <main>
         <AboutSection />
         <Projects />

@@ -4,9 +4,9 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 
 const skills = [
+  { name: "Python", icon: "python" },
   { name: "Java", icon: "java" },
   { name: "C++", icon: "cplusplus" },
-  { name: "Python", icon: "python" },
   { name: "JavaScript", icon: "javascript" },
 
   { name: "HTML5", icon: "html5" },
@@ -19,10 +19,10 @@ const skills = [
   { name: "Node.js", icon: "nodejs" },
   { name: "Flask", icon: "flask" },
 
-  { name: "Java Servlet", icon: "java" },
-  { name: "JSP", icon: "java" },
-  { name: "Pandas", icon: "pandas" },
   { name: "NumPy", icon: "numpy" },
+  { name: "Pandas", icon: "pandas" },
+  { name: "Matplotlib", icon: "python" },
+  { name: "Scikit-learn", icon: "python" },
 
   { name: "MySQL", icon: "mysql" },
   { name: "Firebase", icon: "firebase" },
@@ -41,12 +41,11 @@ export default function Skills() {
         viewport={{ once: true }}
         className="text-3xl md:text-4xl font-bold text-center text-white mb-16"
       >
-        Skills &{" "}
-        <span className="text-cyan-400">Abilities</span>
+        Skills & <span className="text-cyan-400">Abilities</span>
       </motion.h3>
 
       {/* Skills Grid */}
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 gap-6">
         {skills.map((skill, index) => (
           <motion.div
             key={skill.name}
@@ -79,7 +78,9 @@ export default function Skills() {
                 src={`https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${skill.icon}/${skill.icon}-original.svg`}
                 alt={skill.name}
                 fill
-                className="object-contain group-hover:scale-110 transition-transform"
+                className={`object-contain group-hover:scale-110 transition-transform ${
+                  skill.name === "GitHub" ? "invert" : ""
+                }`}
               />
             </div>
 
