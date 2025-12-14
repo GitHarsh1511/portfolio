@@ -88,7 +88,6 @@ export default function Navbar() {
               width={44}
               height={44}
               priority
-              className="transition-all duration-300 group-hover:scale-110"
             />
             <span className="text-xl sm:text-2xl font-semibold text-slate-100">
               Harsh
@@ -105,10 +104,10 @@ export default function Navbar() {
                 <a
                   key={section.id}
                   href={isHome ? `#${section.id}` : `/#${section.id}`}
-                  className={`group relative px-2 py-1 transition ${
+                  className={`group relative px-2 py-1 ${
                     isActive
                       ? "text-indigo-300 font-semibold"
-                      : "text-slate-300 hover:text-indigo-300 hover:font-semibold"
+                      : "text-slate-300 hover:text-indigo-300"
                   }`}
                 >
                   {section.label}
@@ -123,14 +122,13 @@ export default function Navbar() {
               );
             })}
 
-            {/* ✅ Resume Download */}
             <a
               href="/resume/Harsh_Chauhan_Resume.pdf"
-              download
-              className="group relative px-2 py-1 text-slate-300 hover:text-indigo-300 hover:font-semibold"
+              download="Harsh_Chauhan_Resume.pdf"
+              className="group relative px-2 py-1 text-slate-300 hover:text-indigo-300"
             >
               Resume
-              <span className="absolute left-0 -bottom-1 h-[2px] w-full bg-indigo-400 scale-x-0 transition-transform duration-300 group-hover:scale-x-100" />
+              <span className="absolute left-0 -bottom-1 h-[2px] w-full bg-indigo-400 scale-x-0 group-hover:scale-x-100 transition-transform" />
             </a>
           </div>
 
@@ -160,51 +158,92 @@ export default function Navbar() {
 
             {/* Drawer */}
             <motion.aside
-              className="fixed top-0 right-0 z-50 h-full w-[45%] max-w-sm bg-slate-950 backdrop-blur-xl p-6 flex flex-col justify-center"
+              className="fixed top-0 right-0 z-50 h-full w-[75%] max-w-sm bg-slate-950 backdrop-blur-xl p-6 flex flex-col"
               initial={{ x: "100%" }}
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
-              transition={{ type: "spring", stiffness: 300, damping: 30 }}
+              transition={{ type: "spring", stiffness: 260, damping: 30 }}
             >
-              {/* Close */}
-              <button
-                onClick={() => setMobileOpen(false)}
-                className="self-end text-slate-200 mb-6"
-                aria-label="Close menu"
+              {/* Header */}
+              <div className="flex items-center justify-between mb-12">
+                <div className="flex items-center gap-3">
+                  <Image
+                    src="/logow.png"
+                    alt="Harsh Chauhan Logo"
+                    width={40}
+                    height={40}
+                    priority
+                  />
+                  <span className="text-lg font-semibold text-slate-100">
+                    Harsh
+                    <span className="ml-1 text-indigo-400">Chauhan</span>
+                  </span>
+                </div>
+
+                <button
+                  onClick={() => setMobileOpen(false)}
+                  className="text-slate-200"
+                  aria-label="Close menu"
+                >
+                  <X size={26} />
+                </button>
+              </div>
+
+              {/* Centered Links */}
+              <motion.div
+                initial="hidden"
+                animate="show"
+                variants={{
+                  hidden: {},
+                  show: { transition: { staggerChildren: 0.08 } },
+                }}
+                className="flex flex-col items-center gap-6 text-lg flex-1"
               >
-                <X size={28} />
-              </button>
+                {sections.map((section) => {
+                  const isActive = isHome && activeSection === section.id;
 
-              {/* Links */}
-              <div className="flex flex-col gap-6 text-lg items-center">
-                {sections.map((section) => (
-                  <a
-                    key={section.id}
-                    href={isHome ? `#${section.id}` : `/#${section.id}`}
-                    onClick={() => setMobileOpen(false)}
-                    className="text-slate-300 hover:text-indigo-300"
-                  >
-                    {section.label}
-                  </a>
-                ))}
+                  return (
+                    <motion.a
+                      key={section.id}
+                      href={isHome ? `#${section.id}` : `/#${section.id}`}
+                      onClick={() => setMobileOpen(false)}
+                      variants={{
+                        hidden: { opacity: 0, y: 20 },
+                        show: { opacity: 1, y: 0 },
+                      }}
+                      className={`relative inline-block text-center font-medium ${
+                        isActive
+                          ? "text-indigo-300"
+                          : "text-slate-300 hover:text-indigo-300"
+                      }`}
+                    >
+                      {section.label}
+                      <span
+                        className={`absolute left-0 -bottom-1 h-[2px] w-full bg-indigo-400 transition-transform duration-300 ${
+                          isActive ? "scale-x-100" : "scale-x-0"
+                        }`}
+                      />
+                    </motion.a>
+                  );
+                })}
 
-                {/* ✅ Resume Download (Mobile) */}
-                <a
+                <motion.a
                   href="/resume/Harsh_Chauhan_Resume.pdf"
                   download="Harsh_Chauhan_Resume.pdf"
-                  className="group relative px-2 py-1 text-slate-300 hover:text-indigo-300 hover:font-semibold"
+                  onClick={() => setMobileOpen(false)}
+                  variants={{
+                    hidden: { opacity: 0, y: 20 },
+                    show: { opacity: 1, y: 0 },
+                  }}
+                  className="inline-block text-center font-medium text-slate-300 hover:text-indigo-300"
                 >
                   Resume
-                  <span className="absolute left-0 -bottom-1 h-[2px] w-full bg-indigo-400 scale-x-0 transition-transform duration-300 group-hover:scale-x-100" />
-                </a>
+                </motion.a>
+              </motion.div>
 
-                <a
-                  href={isHome ? "#contact" : "/#contact"}
-                  onClick={() => setMobileOpen(false)}
-                  className="mt-6 rounded-full bg-indigo-500 px-4 py-2 text-sm font-medium text-slate-950"
-                >
-                  Let&apos;s talk
-                </a>
+              {/* Copyright */}
+              <div className="pt-8 text-center text-xs text-slate-500">
+                © {new Date().getFullYear()} Harsh Chauhan | All rights reserved.
               </div>
             </motion.aside>
           </>
