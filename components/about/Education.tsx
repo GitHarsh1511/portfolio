@@ -5,7 +5,7 @@ import { GraduationCap, Award } from "lucide-react";
 
 const educationData = [
   {
-    title: "Bachelor of Technology in Computer Engineering",
+    title: "Bachelor of Engineering in Computer Engineering",
     institute: "A. D. Patel Institute of Technology | CVMU",
     duration: "2021 – 2026",
     scoreLabel: "CGPA",
@@ -15,13 +15,13 @@ const educationData = [
   {
     title: "HSC Science (A Group)",
     institute: "Anand High School | GSEB",
-    duration: "2019 – 2021",
+    duration: "2020 – 2021",
     scoreLabel: "Percentage",
     scoreValue: "77.08%",
   },
   {
     title: "SSC",
-    institute: "Anand High School | GSEB",
+    institute: "Anand High School | GSHSEB",
     duration: "2018 – 2019",
     scoreLabel: "Percentage",
     scoreValue: "87.5%",

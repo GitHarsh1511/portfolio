@@ -6,8 +6,8 @@ import { Briefcase } from "lucide-react";
 const experienceData = [
   {
     role: "Flutter Developer Intern",
-    company: "Mobile App Development Internship",
-    duration: "2024",
+    company: "Elsner Technologies Pvt. Ltd. - (Remote)",
+    duration: "May 2025 - June 2025",
     description: [
       "Developed mobile applications using Flutter & Dart",
       "Implemented authentication and user workflows",
@@ -16,16 +16,16 @@ const experienceData = [
     ],
     highlight: true,
   },
-  {
-    role: "Academic Projects & Freelance Learning",
-    company: "Self-driven & University Projects",
-    duration: "2023 – Present",
-    description: [
-      "Built multiple Flutter and web-based applications",
-      "Focused on clean architecture and scalable UI",
-      "Hands-on experience with REST APIs and local storage",
-    ],
-  },
+  // {
+  //   role: "Academic Projects & Freelance Learning",
+  //   company: "Self-driven & University Projects",
+  //   duration: "2023 – Present",
+  //   description: [
+  //     "Built multiple Flutter and web-based applications",
+  //     "Focused on clean architecture and scalable UI",
+  //     "Hands-on experience with REST APIs and local storage",
+  //   ],
+  // },
 ];
 
 export default function Experience() {
