@@ -9,6 +9,7 @@ import { TypeAnimation } from "react-type-animation";
 import { Github, Linkedin, Mail } from "lucide-react";
 import Contact from "@/components/contact/Contact";
 import Footer from "@/components/footer/Footer";
+import { Download, ArrowRight } from "lucide-react";
 
 /* ================= PAGE ================= */
 
@@ -86,32 +87,45 @@ export default function HomePage() {
               </p>
 
               {/* CTA Buttons */}
-              <div className="flex flex-wrap gap-4 pt-4">
-                <a
+              <div className="mt-8 flex flex-wrap items-center gap-4">
+                {/* View Projects */}
+                <motion.a
                   href="#projects"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
                   className="
-        px-7 py-3 rounded-full
-        bg-indigo-500 hover:bg-indigo-400
-        text-slate-950 text-sm font-medium
-        shadow-lg shadow-indigo-500/20
-        transition
-      "
+      inline-flex items-center gap-2
+      px-6 py-3 rounded-2xl
+      bg-indigo-500
+      text-slate-950 font-semibold
+      shadow-[0_10px_30px_rgba(99,102,241,0.4)]
+      hover:bg-indigo-400
+      transition
+    "
                 >
                   View Projects
-                </a>
+                </motion.a>
 
-                <a
-                  href="#contact"
+                {/* Download Resume */}
+                <motion.a
+                  href="/resume/Harsh_Chauhan_Resume.pdf"
+                  download
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
                   className="
-        px-7 py-3 rounded-full
-        border border-slate-700
-        text-slate-200 text-sm
-        hover:border-indigo-400 hover:text-indigo-300
-        transition
-      "
+      inline-flex items-center gap-2
+      px-6 py-3 rounded-2xl
+      border border-indigo-400/40
+      bg-indigo-500/10
+      text-indigo-300 font-semibold
+      shadow-[0_0_30px_rgba(99,102,241,0.35)]
+      hover:bg-indigo-500/20
+      transition
+    "
                 >
-                  Contact Me
-                </a>
+                  <Download size={18} />
+                  Download Resume
+                </motion.a>
               </div>
 
               {/* Social Icons */}

@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -29,7 +28,7 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  /* ================= Active section (only on home) ================= */
+  /* ================= Active section ================= */
   useEffect(() => {
     if (!isHome) return;
 
@@ -91,11 +90,9 @@ export default function Navbar() {
               priority
               className="transition-all duration-300 group-hover:scale-110"
             />
-            <span className="flex items-center text-xl sm:text-2xl font-semibold leading-none text-slate-100 transition-all duration-300 group-hover:text-green-300">
+            <span className="text-xl sm:text-2xl font-semibold text-slate-100">
               Harsh
-              <span className="ml-1 text-indigo-400 group-hover:text-green-300">
-                Chauhan
-              </span>
+              <span className="ml-1 text-indigo-400">Chauhan</span>
             </span>
           </a>
 
@@ -116,7 +113,7 @@ export default function Navbar() {
                 >
                   {section.label}
                   <span
-                    className={`absolute left-0 -bottom-1 h-[2px] w-full origin-left rounded-full bg-indigo-400 transition-transform duration-300 ${
+                    className={`absolute left-0 -bottom-1 h-[2px] w-full bg-indigo-400 transition-transform duration-300 ${
                       isActive
                         ? "scale-x-100"
                         : "scale-x-0 group-hover:scale-x-100"
@@ -126,13 +123,15 @@ export default function Navbar() {
               );
             })}
 
-            <Link
-              href="/resume"
+            {/* ✅ Resume Download */}
+            <a
+              href="/resume/Harsh_Chauhan_Resume.pdf"
+              download
               className="group relative px-2 py-1 text-slate-300 hover:text-indigo-300 hover:font-semibold"
             >
               Resume
-              <span className="absolute left-0 -bottom-1 h-[2px] w-full origin-left scale-x-0 rounded-full bg-indigo-400 transition-transform duration-300 group-hover:scale-x-100" />
-            </Link>
+              <span className="absolute left-0 -bottom-1 h-[2px] w-full bg-indigo-400 scale-x-0 transition-transform duration-300 group-hover:scale-x-100" />
+            </a>
           </div>
 
           {/* Hamburger */}
@@ -176,58 +175,33 @@ export default function Navbar() {
                 <X size={28} />
               </button>
 
-              {/* Logo */}
-              <div className="flex flex-col items-center gap-3 mb-10">
-                <Image
-                  src="/logow.png"
-                  alt="Harsh Chauhan Logo"
-                  width={56}
-                  height={56}
-                  priority
-                />
-                <span className="text-xl font-semibold text-slate-100">
-                  Harsh<span className="text-indigo-400">Chauhan</span>
-                </span>
-              </div>
-
               {/* Links */}
-              <div className="flex flex-col gap-6 text-lg items-center text-center">
-                {sections.map((section) => {
-                  const isActive = isHome && activeSection === section.id;
+              <div className="flex flex-col gap-6 text-lg items-center">
+                {sections.map((section) => (
+                  <a
+                    key={section.id}
+                    href={isHome ? `#${section.id}` : `/#${section.id}`}
+                    onClick={() => setMobileOpen(false)}
+                    className="text-slate-300 hover:text-indigo-300"
+                  >
+                    {section.label}
+                  </a>
+                ))}
 
-                  return (
-                    <a
-                      key={section.id}
-                      href={isHome ? `#${section.id}` : `/#${section.id}`}
-                      onClick={() => setMobileOpen(false)}
-                      className={`relative font-medium transition ${
-                        isActive
-                          ? "text-indigo-300"
-                          : "text-slate-300 hover:text-indigo-300"
-                      }`}
-                    >
-                      {section.label}
-                      <span
-                        className={`absolute left-0 -bottom-1 h-[2px] w-full origin-left rounded-full bg-indigo-400 transition-transform duration-300 ${
-                          isActive ? "scale-x-100" : "scale-x-0"
-                        }`}
-                      />
-                    </a>
-                  );
-                })}
-
-                <Link
-                  href="/resume"
-                  onClick={() => setMobileOpen(false)}
-                  className="text-slate-300 hover:text-indigo-300"
+                {/* ✅ Resume Download (Mobile) */}
+                <a
+                  href="/resume/Harsh_Chauhan_Resume.pdf"
+                  download="Harsh_Chauhan_Resume.pdf"
+                  className="group relative px-2 py-1 text-slate-300 hover:text-indigo-300 hover:font-semibold"
                 >
                   Resume
-                </Link>
+                  <span className="absolute left-0 -bottom-1 h-[2px] w-full bg-indigo-400 scale-x-0 transition-transform duration-300 group-hover:scale-x-100" />
+                </a>
 
                 <a
                   href={isHome ? "#contact" : "/#contact"}
                   onClick={() => setMobileOpen(false)}
-                  className="mt-6 inline-flex justify-center rounded-full bg-indigo-500 px-4 py-2 text-sm font-medium text-slate-950"
+                  className="mt-6 rounded-full bg-indigo-500 px-4 py-2 text-sm font-medium text-slate-950"
                 >
                   Let&apos;s talk
                 </a>
