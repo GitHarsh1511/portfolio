@@ -3,7 +3,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { ExternalLink, Github } from "lucide-react";
 import ProjectModal from "./ProjectModal";
 
 interface Project {
@@ -22,7 +21,7 @@ const projects: Project[] = [
       "A community-driven urban cleanliness tracker that allows users to report and monitor cleanliness issues.",
     image: "/projects/cleansphere.png",
     tech: ["Flutter", "Firebase", "Google Maps"],
-    live: "#",
+    live: "https://example.com",
     github: "https://github.com/GitHarsh1511",
   },
   {
@@ -31,8 +30,8 @@ const projects: Project[] = [
       "A travel companion app with beautiful UI, animations, and personalized recommendations.",
     image: "/projects/voyager.png",
     tech: ["Flutter", "SharedPreferences"],
-    live: "#",
-    github: "#",
+    live: "https://example.com",
+    github: "https://github.com",
   },
   {
     title: "Portfolio Website",
@@ -40,8 +39,8 @@ const projects: Project[] = [
       "My personal developer portfolio built with Next.js, Tailwind CSS, and Framer Motion.",
     image: "/projects/portfolio.png",
     tech: ["Next.js", "Tailwind CSS", "Framer Motion"],
-    live: "#",
-    github: "#",
+    live: "https://example.com",
+    github: "https://github.com",
   },
 ];
 
@@ -53,7 +52,7 @@ export default function Projects() {
       id="projects"
       className="relative w-full max-w-7xl mx-auto px-6 py-28"
     >
-      {/* Section Heading */}
+      {/* Heading */}
       <motion.h2
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -74,70 +73,38 @@ export default function Projects() {
             transition={{ duration: 0.5, delay: index * 0.1 }}
             viewport={{ once: true }}
             onClick={() => setSelectedProject(project)}
-            className="
-              group
-              cursor-pointer
-              bg-slate-900/70
-              border border-slate-800
-              rounded-2xl
-              overflow-hidden
-              shadow-lg
-              transition-all
-              duration-300
-              hover:-translate-y-1
-              hover:border-cyan-400/60
-            "
+            className="group cursor-pointer bg-slate-900/70 border border-slate-800 rounded-2xl overflow-hidden shadow-lg transition-all duration-300 hover:-translate-y-1 hover:border-cyan-400/60"
           >
-            {/* Project Image */}
+            {/* Image */}
             <div className="relative h-48 w-full overflow-hidden">
               <Image
                 src={project.image}
                 alt={project.title}
                 fill
-                className="object-cover group-hover:scale-105 transition-transform duration-500"
+                className="object-cover transition-transform duration-500 group-hover:scale-105"
               />
             </div>
 
-            {/* Card Content */}
+            {/* Content */}
             <div className="p-6">
               <h3 className="text-xl font-semibold text-white">
                 {project.title}
               </h3>
 
-              <p className="text-slate-400 mt-2 text-sm">
+              <p className="text-slate-400 mt-2 text-sm leading-relaxed">
                 {project.description}
               </p>
 
-              {/* Tech Stack */}
-              <div className="flex flex-wrap gap-2 mt-4">
-                {project.tech.map((tech) => (
-                  <span
-                    key={tech}
-                    className="text-xs px-3 py-1 rounded-full bg-slate-800 text-slate-300"
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
-
-              {/* Action Buttons (optional preview) */}
-              <div className="flex gap-4 mt-6 text-sm">
-                <span className="flex items-center gap-2 text-cyan-400">
-                  <ExternalLink size={16} />
-                  View Details
-                </span>
-
-                <span className="flex items-center gap-2 text-slate-300">
-                  <Github size={16} />
-                  Source Code
-                </span>
-              </div>
+              {/* Subtle CTA */}
+              {/* <span className="inline-block mt-4 text-sm text-cyan-400">
+                View Details →
+              </span> */}
             </div>
           </motion.div>
         ))}
       </div>
 
-      {/* Project Modal */}
+      {/* Modal */}
       <ProjectModal
         project={selectedProject}
         onClose={() => setSelectedProject(null)}
