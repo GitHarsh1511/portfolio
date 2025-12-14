@@ -56,28 +56,34 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
             animate={{ y: 0, scale: 1 }}
             exit={{ y: 30, scale: 0.95 }}
             transition={{ duration: 0.25, ease: "easeOut" }}
-            className="relative z-10 w-full max-w-3xl bg-slate-950 border border-slate-800 rounded-2xl shadow-2xl overflow-hidden"
+            className="
+              relative z-10 w-full max-w-3xl
+              bg-slate-950 border border-slate-800
+              rounded-2xl shadow-2xl
+              max-h-[85vh] overflow-hidden
+            "
           >
-            {/* Close */}
-            <button
-              onClick={onClose}
-              className="absolute top-4 right-4 z-20 text-slate-400 hover:text-white"
-            >
-              <X size={22} />
-            </button>
+            {/* Header */}
+            <div className="relative">
+              <button
+                onClick={onClose}
+                className="absolute top-4 right-4 z-20 text-slate-400 hover:text-white"
+              >
+                <X size={22} />
+              </button>
 
-            {/* Image */}
-            <div className="relative h-56 w-full">
-              <Image
-                src={project.image}
-                alt={project.title}
-                fill
-                className="object-cover"
-              />
+              <div className="relative h-56 w-full">
+                <Image
+                  src={project.image}
+                  alt={project.title}
+                  fill
+                  className="object-cover"
+                />
+              </div>
             </div>
 
-            {/* Content */}
-            <div className="p-6">
+            {/* Scrollable Content */}
+            <div className="overflow-y-auto max-h-[calc(85vh-14rem)] p-6">
               <h3 className="text-2xl font-semibold text-white">
                 {project.title}
               </h3>

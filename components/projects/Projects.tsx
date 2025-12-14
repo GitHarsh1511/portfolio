@@ -7,8 +7,8 @@ import ProjectModal from "./ProjectModal";
 
 interface Project {
   title: string;
-  shortDescription: string; // card
-  fullDescription: string;  // modal
+  shortDescription: string;
+  fullDescription: string;
   image: string;
   tech: string[];
   live: string;
@@ -23,8 +23,8 @@ const projects: Project[] = [
     fullDescription:
       "CleanSphere is a community-driven urban cleanliness tracking platform designed to bridge the gap between citizens and municipal authorities. Users can report cleanliness issues such as garbage accumulation, overflowing bins, and unhygienic public areas using location-based reporting.\n\nThe platform allows real-time monitoring of reported issues, helping authorities prioritize and resolve problems efficiently while promoting civic responsibility and cleaner cities.",
     image: "/projects/cleansphere.png",
-    tech: ["React", "Node.js", "MySQL","Clerk","Firebase","Google Maps API"],
-    live: "https://www.linkedin.com/posts/harsh-jingar19_cleansphere-smartcity-reactnative-ugcPost-7330876698424430593-ulIu?utm_source=share&utm_medium=member_desktop&rcm=ACoAAD9qJlwBkdwkded_U4UMTaqrn5KAHi-lEgQ",
+    tech: ["React", "Node.js", "MySQL", "Clerk", "Firebase", "Google Maps API"],
+    live: "https://www.linkedin.com/posts/harsh-jingar19_cleansphere-smartcity-reactnative-ugcPost-7330876698424430593-ulIu",
     github: "https://github.com/GitHarsh1511/CleanSphere---Urban-Cleanliness-Tracker",
   },
   {
@@ -32,7 +32,7 @@ const projects: Project[] = [
     shortDescription:
       "A modern travel companion app offering personalized recommendations with smooth animations.",
     fullDescription:
-      "Voyager is a travel companion application focused on delivering a seamless and visually appealing user experience. It helps users explore destinations, manage preferences, and enjoy smooth UI interactions through well-crafted animations.\n\nThe app emphasizes performance, intuitive navigation, and persistent user preferences to enhance the overall travel planning experience.",
+      "Voyager is a travel companion application focused on delivering a seamless and visually appealing user experience.\n\nIt helps users explore destinations, manage preferences, and enjoy smooth UI interactions through well-crafted animations.",
     image: "/projects/voyager.png",
     tech: ["Flutter", "SharedPreferences"],
     live: "https://example.com",
@@ -43,7 +43,7 @@ const projects: Project[] = [
     shortDescription:
       "A personal developer portfolio showcasing projects, skills, and experience.",
     fullDescription:
-      "This portfolio website is built to showcase my projects, skills, and professional journey. It focuses on clean design, smooth animations, and modern UI practices to create a strong personal brand.\n\nThe website is fully responsive, performance-optimized, and designed to leave a lasting impression on recruiters and clients.",
+      "This portfolio website is built to showcase my projects, skills, and professional journey.\n\nIt focuses on clean design, smooth animations, and modern UI practices.",
     image: "/projects/portfolio.png",
     tech: ["Next.js", "Tailwind CSS", "Framer Motion"],
     live: "https://example.com",
@@ -59,7 +59,6 @@ export default function Projects() {
       id="projects"
       className="relative w-full max-w-7xl mx-auto px-6 py-28"
     >
-      {/* Heading */}
       <motion.h2
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -70,7 +69,6 @@ export default function Projects() {
         My <span className="text-cyan-400">Projects</span>
       </motion.h2>
 
-      {/* Grid */}
       <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
         {projects.map((project, index) => (
           <motion.div
@@ -82,7 +80,6 @@ export default function Projects() {
             onClick={() => setSelectedProject(project)}
             className="group cursor-pointer bg-slate-900/70 border border-slate-800 rounded-2xl overflow-hidden shadow-lg transition-all duration-300 hover:-translate-y-1 hover:border-cyan-400/60"
           >
-            {/* Image */}
             <div className="relative h-48 w-full overflow-hidden">
               <Image
                 src={project.image}
@@ -92,25 +89,18 @@ export default function Projects() {
               />
             </div>
 
-            {/* Card Content */}
             <div className="p-6">
               <h3 className="text-xl font-semibold text-white">
                 {project.title}
               </h3>
-
               <p className="text-slate-400 mt-2 text-sm leading-relaxed">
                 {project.shortDescription}
               </p>
-
-              {/* <span className="inline-block mt-4 text-sm text-cyan-400">
-                View Details →
-              </span> */}
             </div>
           </motion.div>
         ))}
       </div>
 
-      {/* Modal */}
       <ProjectModal
         project={selectedProject}
         onClose={() => setSelectedProject(null)}
