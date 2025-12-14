@@ -7,7 +7,8 @@ import ProjectModal from "./ProjectModal";
 
 interface Project {
   title: string;
-  description: string;
+  shortDescription: string; // card
+  fullDescription: string;  // modal
   image: string;
   tech: string[];
   live: string;
@@ -17,17 +18,21 @@ interface Project {
 const projects: Project[] = [
   {
     title: "CleanSphere",
-    description:
-      "A community-driven urban cleanliness tracker that allows users to report and monitor cleanliness issues.",
+    shortDescription:
+      "A community-driven platform that enables citizens to report, track, and monitor urban cleanliness issues in real time.",
+    fullDescription:
+      "CleanSphere is a community-driven urban cleanliness tracking platform designed to bridge the gap between citizens and municipal authorities. Users can report cleanliness issues such as garbage accumulation, overflowing bins, and unhygienic public areas using location-based reporting.\n\nThe platform allows real-time monitoring of reported issues, helping authorities prioritize and resolve problems efficiently while promoting civic responsibility and cleaner cities.",
     image: "/projects/cleansphere.png",
-    tech: ["Flutter", "Firebase", "Google Maps"],
-    live: "https://example.com",
-    github: "https://github.com/GitHarsh1511",
+    tech: ["React", "Node.js", "MySQL","Clerk","Firebase","Google Maps API"],
+    live: "https://www.linkedin.com/posts/harsh-jingar19_cleansphere-smartcity-reactnative-ugcPost-7330876698424430593-ulIu?utm_source=share&utm_medium=member_desktop&rcm=ACoAAD9qJlwBkdwkded_U4UMTaqrn5KAHi-lEgQ",
+    github: "https://github.com/GitHarsh1511/CleanSphere---Urban-Cleanliness-Tracker",
   },
   {
     title: "Voyager App",
-    description:
-      "A travel companion app with beautiful UI, animations, and personalized recommendations.",
+    shortDescription:
+      "A modern travel companion app offering personalized recommendations with smooth animations.",
+    fullDescription:
+      "Voyager is a travel companion application focused on delivering a seamless and visually appealing user experience. It helps users explore destinations, manage preferences, and enjoy smooth UI interactions through well-crafted animations.\n\nThe app emphasizes performance, intuitive navigation, and persistent user preferences to enhance the overall travel planning experience.",
     image: "/projects/voyager.png",
     tech: ["Flutter", "SharedPreferences"],
     live: "https://example.com",
@@ -35,8 +40,10 @@ const projects: Project[] = [
   },
   {
     title: "Portfolio Website",
-    description:
-      "My personal developer portfolio built with Next.js, Tailwind CSS, and Framer Motion.",
+    shortDescription:
+      "A personal developer portfolio showcasing projects, skills, and experience.",
+    fullDescription:
+      "This portfolio website is built to showcase my projects, skills, and professional journey. It focuses on clean design, smooth animations, and modern UI practices to create a strong personal brand.\n\nThe website is fully responsive, performance-optimized, and designed to leave a lasting impression on recruiters and clients.",
     image: "/projects/portfolio.png",
     tech: ["Next.js", "Tailwind CSS", "Framer Motion"],
     live: "https://example.com",
@@ -63,7 +70,7 @@ export default function Projects() {
         My <span className="text-cyan-400">Projects</span>
       </motion.h2>
 
-      {/* Projects Grid */}
+      {/* Grid */}
       <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
         {projects.map((project, index) => (
           <motion.div
@@ -85,17 +92,16 @@ export default function Projects() {
               />
             </div>
 
-            {/* Content */}
+            {/* Card Content */}
             <div className="p-6">
               <h3 className="text-xl font-semibold text-white">
                 {project.title}
               </h3>
 
               <p className="text-slate-400 mt-2 text-sm leading-relaxed">
-                {project.description}
+                {project.shortDescription}
               </p>
 
-              {/* Subtle CTA */}
               {/* <span className="inline-block mt-4 text-sm text-cyan-400">
                 View Details →
               </span> */}

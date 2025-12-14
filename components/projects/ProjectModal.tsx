@@ -7,7 +7,8 @@ import { X, Github, ExternalLink } from "lucide-react";
 
 interface Project {
   title: string;
-  description: string;
+  shortDescription: string;
+  fullDescription: string;
   image: string;
   tech: string[];
   live: string;
@@ -81,12 +82,12 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                 {project.title}
               </h3>
 
-              <p className="text-slate-400 mt-3 leading-relaxed">
-                {project.description}
+              <p className="text-slate-400 mt-4 whitespace-pre-line leading-relaxed">
+                {project.fullDescription}
               </p>
 
               {/* Tech Stack */}
-              <div className="flex flex-wrap gap-2 mt-5">
+              <div className="flex flex-wrap gap-2 mt-6">
                 {project.tech.map((tech) => (
                   <span
                     key={tech}
@@ -97,7 +98,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                 ))}
               </div>
 
-              {/* Actions */}
+              {/* Links */}
               <div className="flex gap-6 mt-7">
                 <a
                   href={project.live}
