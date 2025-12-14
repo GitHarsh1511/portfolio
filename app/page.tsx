@@ -7,15 +7,12 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { TypeAnimation } from "react-type-animation";
 import { Github, Linkedin, Mail } from "lucide-react";
-import { projects } from "@/data/projects";
 import Contact from "@/components/contact/Contact";
 import Footer from "@/components/footer/Footer";
 
 /* ================= PAGE ================= */
 
 export default function HomePage() {
-  const featuredProjects = projects.slice(0, 3);
-
   /* 🔄 Profile Image Switch */
   const images = ["/img/profile.jpg", "/img/profile1.jpg"];
   const [index, setIndex] = useState(0);
@@ -34,106 +31,163 @@ export default function HomePage() {
         id="home"
         className="relative w-full min-h-[calc(100vh-6rem)] overflow-hidden"
       >
+        {/* Soft background glow */}
+        <div className="absolute inset-0 -z-10">
+          <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-indigo-500/20 rounded-full blur-3xl" />
+        </div>
+
         <div className="mx-auto max-w-6xl px-6 sm:px-8 lg:px-12 flex h-full items-center">
-          <div className="grid w-full grid-cols-1 md:grid-cols-2 items-center gap-12 lg:gap-16">
-            {/* LEFT */}
+          <div className="grid w-full grid-cols-1 md:grid-cols-2 items-center gap-14 lg:gap-20">
+            {/* LEFT CONTENT */}
             <motion.div
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, ease: "easeOut" }}
-              className="space-y-6"
+              className="space-y-5"
             >
-              <p className="text-sm text-slate-300">Heya, I am</p>
+              {/* Small Intro */}
+              <p className="text-lg md:text-xl font-semibold text-slate-300 leading-tight">
+                Heya, I’m
+              </p>
 
-              <h1 className="text-4xl md:text-5xl font-bold leading-tight">
-                Harsh <span className="text-indigo-400">Chauhan</span>
+              {/* Name */}
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight text-white">
+                Harsh{" "}
+                <span className="bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+                  Chauhan
+                </span>
               </h1>
 
+              {/* Animated Role */}
               <TypeAnimation
                 sequence={[
-                  "Computer Engineering Student",
-                  2000,
-                  "Flutter Developer",
-                  2000,
-                  "Next.js Developer",
+                  "Computer Engineer",
                   2000,
                   "AI / ML Enthusiast",
+                  2000,
+                  "Data Analyst",
                   2000,
                 ]}
                 speed={50}
                 repeat={Infinity}
                 wrapper="h2"
-                className="text-lg md:text-xl font-semibold text-slate-300"
+                className="
+    text-lg md:text-xl font-semibold
+    bg-gradient-to-r from-cyan-400 via-sky-400 to-blue-500
+    bg-clip-text text-transparent
+  "
               />
 
+              {/* Description */}
               <p className="max-w-xl text-sm md:text-base text-slate-400 leading-relaxed">
-                4th-year Computer Engineering student passionate about
-                technology and innovation. I build modern web & mobile
-                experiences and love turning ideas into impactful products.
+                Proactive Computer Engineering student passionate about building
+                intelligent, user-focused applications using modern web, mobile,
+                and AI-driven technologies.
               </p>
 
-              <div className="flex flex-wrap gap-4 pt-2">
+              {/* CTA Buttons */}
+              <div className="flex flex-wrap gap-4 pt-4">
                 <a
                   href="#projects"
-                  className="px-6 py-2 rounded-full bg-indigo-500 hover:bg-indigo-400 text-slate-950 text-sm font-medium transition"
+                  className="
+        px-7 py-3 rounded-full
+        bg-indigo-500 hover:bg-indigo-400
+        text-slate-950 text-sm font-medium
+        shadow-lg shadow-indigo-500/20
+        transition
+      "
                 >
-                  Explore More
+                  View Projects
                 </a>
 
                 <a
                   href="#contact"
-                  className="px-6 py-2 rounded-full border border-slate-700 text-slate-200 text-sm hover:border-indigo-400 hover:text-indigo-300 transition"
+                  className="
+        px-7 py-3 rounded-full
+        border border-slate-700
+        text-slate-200 text-sm
+        hover:border-indigo-400 hover:text-indigo-300
+        transition
+      "
                 >
                   Contact Me
                 </a>
               </div>
 
-              <div className="flex gap-4 pt-4 text-slate-400">
+              {/* Social Icons */}
+              <div className="flex items-center gap-4 pt-6">
                 <a
                   href="https://github.com/GitHarsh1511"
                   target="_blank"
-                  className="hover:text-indigo-400 transition"
+                  aria-label="GitHub"
+                  className="
+        p-3 rounded-full
+        border border-slate-700
+        text-slate-400
+        hover:text-white hover:border-indigo-400
+        hover:shadow-md hover:shadow-indigo-500/30
+        transition
+      "
                 >
-                  <Github />
+                  <Github size={18} />
                 </a>
+
                 <a
                   href="https://linkedin.com/in/harshchauhan115"
                   target="_blank"
-                  className="hover:text-indigo-400 transition"
+                  aria-label="LinkedIn"
+                  className="
+        p-3 rounded-full
+        border border-slate-700
+        text-slate-400
+        hover:text-white hover:border-indigo-400
+        hover:shadow-md hover:shadow-indigo-500/30
+        transition
+      "
                 >
-                  <Linkedin />
+                  <Linkedin size={18} />
                 </a>
+
                 <a
                   href="mailto:workwitharsh@gmail.com"
-                  className="hover:text-indigo-400 transition"
+                  aria-label="Email"
+                  className="
+        p-3 rounded-full
+        border border-slate-700
+        text-slate-400
+        hover:text-white hover:border-indigo-400
+        hover:shadow-md hover:shadow-indigo-500/30
+        transition
+      "
                 >
-                  <Mail />
+                  <Mail size={18} />
                 </a>
               </div>
             </motion.div>
 
             {/* RIGHT IMAGE (AUTO SWITCH) */}
             <motion.div
-              animate={{ y: [0, -14, 0] }}
+              animate={{ y: [0, -12, 0] }}
               transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
               className="relative flex justify-center md:justify-end"
             >
               <div className="group relative flex h-80 w-80 items-center justify-center">
-                {/* Rotating glow */}
+                {/* Rotating glow ring */}
                 <motion.div
                   animate={{ rotate: 360 }}
                   transition={{
-                    duration: 20,
+                    duration: 25,
                     repeat: Infinity,
                     ease: "linear",
                   }}
-                  className="absolute inset-0 rounded-full bg-linear-to-tr from-indigo-500 via-purple-500 to-pink-500 blur-sm opacity-70"
+                  className="absolute inset-0 rounded-full bg-gradient-to-tr from-indigo-500 via-purple-500 to-pink-500 blur-sm opacity-60"
                 />
 
-                <div className="absolute inset-10 rounded-full bg-indigo-500/15 blur-xl" />
+                {/* Soft inner glow */}
+                <div className="absolute inset-12 rounded-full bg-indigo-500/10 blur-xl" />
 
                 {/* Profile Images */}
-                <div className="relative z-10 h-64 w-64 overflow-hidden rounded-full border-4 border-slate-900 bg-slate-900 transition-transform duration-500 group-hover:scale-110">
+                <div className="relative z-10 h-64 w-64 overflow-hidden rounded-full border border-slate-800 bg-slate-900 transition-transform duration-500 group-hover:scale-105">
                   {images.map((src, i) => (
                     <Image
                       key={src}
