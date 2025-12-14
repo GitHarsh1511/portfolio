@@ -1,82 +1,91 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Education from "./Education";
-import Experience from "./Experience";
-import Skills from "./Skills";
 
 export default function AboutSection() {
   return (
     <section
       id="about"
-      className="relative w-full max-w-7xl mx-auto px-6 py-28"
+      className="relative w-full max-w-5xl mx-auto px-6 sm:px-8 lg:px-12"
     >
-      {/* Section Heading */}
-      <motion.h2
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        viewport={{ once: true }}
-        className="text-4xl md:text-5xl font-bold text-center mb-16"
-      >
-        About <span className="text-cyan-400">Me</span>
-      </motion.h2>
-
-      {/* About Myself */}
+      {/* ===== ABOUT HEADING ===== */}
       <motion.div
-        initial={{ opacity: 0, y: 40 }}
+        initial={false}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.2, duration: 0.6 }}
-        viewport={{ once: true }}
-        className="max-w-3xl mx-auto text-center text-slate-300 text-lg leading-relaxed"
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        viewport={{ once: true, margin: "-80px" }}
+        className="text-center mb-16"
       >
-        <p>
-          I am a{" "}
-          <span className="text-white font-semibold">
-            Flutter & Web Developer
-          </span>{" "}
-          with hands-on experience in building scalable and user-focused
-          applications. I enjoy creating clean UI, smooth interactions, and
-          efficient application architectures.
-        </p>
+        <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+          About <span className="text-indigo-400">Me</span>
+        </h2>
 
-        <p className="mt-4">
-          Through academic projects and a Flutter development internship, I
-          have worked on real-world applications involving authentication,
-          state management, databases, and modern UI design.
+        <p className="max-w-2xl mx-auto text-slate-400 text-sm md:text-base leading-relaxed">
+          A brief overview of my background, interests, and academic journey.
         </p>
       </motion.div>
 
-      {/* Academic Journey */}
-      <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.3, duration: 0.6 }}
-        viewport={{ once: true }}
-        className="max-w-4xl mx-auto mt-20 text-center"
-      >
-        <h3 className="text-3xl font-semibold text-white mb-6">
-          Academic Journey
-        </h3>
+      {/* ===== STACKED CARDS ===== */}
+      <div className="flex flex-col gap-8">
+        {/* CARD 1 */}
+        <motion.div
+          initial={false}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true, margin: "-80px" }}
+          className="
+            bg-slate-900/70
+            border border-slate-800
+            rounded-2xl
+            p-6 sm:p-8
+            backdrop-blur
+          "
+        >
+          <h3 className="text-lg font-semibold text-white mb-3 text-center">
+           Computer Engineering Student
+          </h3>
 
-        <p className="text-slate-400 text-lg leading-relaxed">
-          My academic journey in computer applications has provided me with a
-          strong foundation in software development principles. Alongside
-          coursework, I focused on practical learning through projects and
-          internships to bridge the gap between theory and real-world
-          application development.
-        </p>
-      </motion.div>
+          <p className="text-slate-300 text-sm md:text-base leading-relaxed">
+            I am a proactive and detail-oriented Computer Engineering student
+            with a strong interest in Artificial Intelligence and Machine
+            Learning. I enjoy working on AI-driven solutions, focusing on data
+            analysis, model development, and problem-solving using Python.
+          </p>
 
-      {/* Education & Experience */}
-      <div className="mt-24 grid md:grid-cols-2 gap-12">
-        <Education />
-        <Experience />
-      </div>
+          <p className="text-slate-300 text-sm md:text-base leading-relaxed mt-4">
+            I bring a strong analytical mindset along with the ability to
+            collaborate effectively in team environments. I am highly motivated
+            to continuously learn, adapt, and explore innovative technologies
+            to build impactful and intelligent applications.
+          </p>
+        </motion.div>
 
-      {/* Skills Section BELOW Education & Experience */}
-      <div className="mt-24">
-        <Skills />
+        {/* CARD 2 */}
+        <motion.div
+          initial={false}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.05 }}
+          viewport={{ once: true, margin: "-80px" }}
+          className="
+            bg-slate-900/70
+            border border-slate-800
+            rounded-2xl
+            p-6 sm:p-8
+            backdrop-blur
+          "
+        >
+          <h3 className="text-lg font-semibold text-white mb-3 text-center">
+            Academic Journey
+          </h3>
+
+          <p className="text-slate-400 text-sm md:text-base leading-relaxed">
+            My academic journey in computer applications has provided me with a
+            strong foundation in software development principles. Alongside
+            coursework, I focused on practical learning through projects and
+            internships to bridge the gap between theory and real-world
+            application development.
+          </p>
+        </motion.div>
       </div>
     </section>
   );
