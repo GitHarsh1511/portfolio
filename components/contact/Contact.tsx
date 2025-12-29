@@ -36,7 +36,7 @@ export default function Contact() {
       <div className="grid gap-6 sm:grid-cols-3">
         {/* Email */}
         <motion.a
-          href="mailto:yourmail@example.com"
+          href="mailto:workwitharsh15.com"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}
@@ -59,7 +59,7 @@ export default function Contact() {
           <Mail className="w-7 h-7 text-green-400" />
           <span className="text-white-200 font-medium">Email</span>
           <span className="text-sm text-slate-400">
-            workwitharsh@gmail.com
+            workwitharsh15@gmail.com
           </span>
         </motion.a>
 
