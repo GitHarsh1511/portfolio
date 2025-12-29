@@ -166,7 +166,7 @@ export default function HomePage() {
                 </a>
 
                 <a
-                  href="mailto:workwitharsh@gmail.com"
+                  href="mailto:workwitharsh15@gmail.com"
                   aria-label="Email"
                   className="
         p-3 rounded-full
