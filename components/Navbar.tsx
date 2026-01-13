@@ -132,8 +132,8 @@ export default function Navbar() {
             })}
 
             <a
-              href="/resume/Harsh_Chauhan_Resume.pdf"
-              download="Harsh_Chauhan_Resume.pdf"
+              href="/resume/Harsh_Chauhan_Resume_2026.pdf"
+              download="Harsh_Chauhan_Resume_2026.pdf"
               className="group relative px-2 py-1 text-white-400 hover:text-green-400"
             >
               Resume
@@ -237,8 +237,8 @@ export default function Navbar() {
                 })}
 
                 <motion.a
-                  href="/resume/Harsh_Chauhan_Resume.pdf"
-                  download="Harsh_Chauhan_Resume.pdf"
+                  href="/resume/Harsh_Chauhan_Resume_2026.pdf"
+                  download="Harsh_Chauhan_Resume_2026.pdf"
                   onClick={() => setMobileOpen(false)}
                   variants={{
                     hidden: { opacity: 0, y: 20 },

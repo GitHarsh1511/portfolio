@@ -111,7 +111,7 @@ export default function HomePage() {
 
                 {/* Download Resume */}
                 <motion.a
-                  href="/resume/Harsh_Chauhan_Resume.pdf"
+                  href="/resume/Harsh_Chauhan_Resume_2026.pdf"
                   download
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
