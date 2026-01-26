@@ -66,7 +66,7 @@ export default function Projects() {
   return (
     <section
       id="projects"
-      className="relative w-full max-w-7xl mx-auto px-6 py-28"
+      className="relative w-full max-w-7xl mx-auto px-6 py-28 mb-[-125]"
     >
       <motion.h2
         initial={{ opacity: 0, y: 40 }}

@@ -29,7 +29,7 @@ const skills = [
 export default function Skills() {
   return (
     /* ===== SKILLS SECTION WRAPPER (IMPORTANT) ===== */
-    <section className="relative z-10 w-full py-28 md:py-36">
+    <section className="relative z-10 w-full py-28 md:py-36v mb-[-125]">
       {/* ===== WIDTH CONTAINER (MATCH PROJECTS) ===== */}
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         {/* Section Heading */}

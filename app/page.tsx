@@ -33,7 +33,7 @@ export default function HomePage() {
       {/* ================= HERO ================= */}
       <section
         id="home"
-        className="relative w-full min-h-[calc(100vh-6rem)] overflow-hidden"
+        className="relative w-full min-h-[calc(100vh-8.5rem)] overflow-hidden mt-10 mb-[-75px]"
       >
         {/* Soft background glow */}
         <div className="absolute inset-0 -z-10">
@@ -197,7 +197,7 @@ export default function HomePage() {
                     repeat: Infinity,
                     ease: "linear",
                   }}
-                  className="absolute inset-0 rounded-full bg-linear-to-tr from-emerald-500 via-green-500 to-emerald-600 blur-sm opacity-90"
+                  className="absolute inset-0 rounded-full bg-linear-to-tr from-emerald-500 via-green-500 to-emerald-600 blur-sm opacity-100"
                 />
 
                 {/* Soft inner glow */}
@@ -230,7 +230,7 @@ export default function HomePage() {
         <AboutSection />
 
         {/* ================= EDUCATION + EXPERIENCE ================= */}
-        <section id="education" className="relative z-10 w-full py-28 md:py-36">
+        <section id="education" className="relative z-10 w-full py-28 md:py-36 mb-[-175]">
           <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
             {/* Section Heading */}
             <motion.h2

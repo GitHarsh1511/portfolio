@@ -7,7 +7,7 @@ export default function AboutSection() {
     /* ===== PAGE SECTION WRAPPER (IMPORTANT) ===== */
     <section
       id="about"
-      className="relative z-10 w-full py-28 md:py-36"
+      className="relative z-10 w-full py-28 md:py-36 mb-[-175]"
     >
       {/* ===== CONTENT CONTAINER ===== */}
       <div className="max-w-5xl mx-auto px-6 sm:px-8 lg:px-12">

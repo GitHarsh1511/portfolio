@@ -7,7 +7,7 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="relative w-full max-w-5xl mx-auto px-6 py-28 text-center"
+      className="relative w-full max-w-5xl mx-auto px-6 py-28 text-center mb-[-75]"
     >
       {/* Heading */}
       <motion.h2
