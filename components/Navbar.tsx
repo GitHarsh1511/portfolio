@@ -70,11 +70,12 @@ export default function Navbar() {
     <>
       {/* ================= NAVBAR ================= */}
       <header
-        className={`fixed top-0 left-0 right-0 z-40 transition-all backdrop-blur-md ${
+        className={`fixed top-0 left-0 right-0 z-40 transition-all backdrop-blur-md border-b border-slate-75 ${
           isScrolled
-            ? "bg-slate-950/80 shadow-[inset_0_-1px_0_rgba(51,65,85,0.7)] shadow-[0_4px_20px_rgba(15,23,42,0.6)]"
+            ? "bg-slate-950/75 shadow-[0_4px_20px_rgba(15,23,42,0.6)]"
             : "bg-transparent"
         }`}
+      
       >
         <nav className="w-full px-6 sm:px-10 h-20 flex items-center justify-between">
           {/* Logo */}
