@@ -16,6 +16,16 @@ interface Project {
 }
 
 const projects: Project[] = [
+
+  {
+    title:"Time Analysis with CryptoCurrency",
+    shortDescription:"About Multi-coin cryptocurrency time series forecasting using ARIMA, SARIMA, Prophet, and LSTM with Streamlit dashboard.",
+    fullDescription:"This project focuses on cryptocurrency price analysis and forecasting using historical market data collected from real-world sources.The dataset was carefully preprocessed, cleaned, and structured to ensure correct time alignment and accurate price mapping.\n\n Detailed Exploratory Data Analysis (EDA) was performed to study long-term trends, price volatility, and overall market behavior.\n\n Multiple time series forecasting models were implemented and compared:\n\n ARIMA for baseline statistical forecasting\n SARIMA to capture seasonal patterns\n Prophet for long-term trend estimation\n LSTM (Long Short-Term Memory) for deep learning-based prediction\n\n Each model was evaluated on historical data up to 31-12-2025, followed by 30-day future forecasting beyond this date.\n\nAn interactive Streamlit dashboard was developed to visualize historical prices, model predictions, and future forecasts for multiple cryptocurrencies.",
+    image:"/projects/home.png",
+    tech:["Python","Numpy","Pandas","Seaborn","Matplotlib","EDA","Streamlit"],
+    live:"https://time-series-analysis-with-cryptocurrency-2026-cryptobc.streamlit.app",
+    github:"https://github.com/GitHarsh1511/crypto-multi-coin-forecast",
+  },
   {
     title: "CleanSphere",
     shortDescription:
